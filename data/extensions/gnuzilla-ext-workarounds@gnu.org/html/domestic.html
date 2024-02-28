@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<head>
+  <!--
+
+      Copyright (C) 2019 Nathan Nichols
+      Copyright (C) 2019 Free Software Foundation, Inc.
+
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 3 of the License, or
+      (at your option) any later version.
+
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU General Public License for more details.
+
+      You should have received a copy of the GNU General Public License
+      along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+    -->
+
+
+  
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+
+  <style>
+    div.button {max-width: 100px; padding: 10px; background: aquamarine;}
+    div.button:hover {background: lightgreen;}
+  </style>
+
+
+  
+</head>
+<body>
+  <script type="text/javascript" src="./jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="./usps_postage.js"></script>
+
+  <h1>Postage Calculator :D</h1>
+  <p>This is a utility for calculating United States Postal Service domestic postage rates.</p>
+  <p><i><u>What is this?</u></i></p>
+  <p>The postage calculator on the USPS website is impossible to use without running non-free Javascript. This is a work-around.</p>
+
+  <p>Packaged as part of the "Workarounds for nonfree JS" add-on.</p>
+
+  <h2>Domestic rates</h2>
+  <form id="main">
+      <p>To get a user ID, sign up <a href="https://registration.shippingapis.com/">here</a> and it will be emailed to you.</p>
+
+    User ID:<input type="text" name="USERID"><br>
+    Service:
+    <select name="Service">
+      <option value="FIRST CLASS">First Class</option>
+      <option value="FIRST CLASS COMMERCIAL">First Class Commercial</option>
+      <option value="FIRST CLASS HFP COMMERCIAL">First Class  HFP Commercial</option>
+      <option value="PRIORITY">Priority</option>
+      <option value="PRIORITY COMMERCIAL">Priority Commercial</option>
+      <option value="PRIORITY CPP">Priority Cpp</option>
+      <option value="HFP COMMERCIAL">Priority HFP Commercial</option>
+      <option value="PRIORITY HFP CPP">Priority HFP CPP</option>
+      <option value="PRIORITY MAIL EXPRESS">Priority Mail Express</option>
+      <option value="PRIORITY MAIL EXPRESS COMMERCIAL">Priority Mail Express Commercial</option>
+      <option value="PRIORITY MAIL EXPRESS CPP">Priority Mail Express CPP</option>
+      <option value="PRIORITY MAIL EXPRESS">Priority Mail Express Sh</option>
+      <option value="PRIORITY MAIL EXPRESS SH COMMERCIAL">Priority Mail Express Sh Commercial</option>
+      <option value="PRIORITY MAIL EXPRESS HFP">Priority Mail Express HFP</option>
+      <option value="PRIORITY MAIL EXPRESS HFP COMMERCIAL">Priority Mail Express HFP Commercial</option>
+      <option value="PRIORITY MAIL EXPRESS HFP CPP">Priority Mail Express HFP CPP</option>
+      <option value="PRIORITY MAIL CUBIC">Priority Mail Cubic</option>
+      <option value="RETAIL GROUND">Retail Ground</option>
+      <option value="MEDIA">Media</option>
+      <option value="LIBRARY">Library</option>
+      <option value="ALL">All</option>
+      <option value="ONLINE">Online</option>
+      <option value="PLUS">Plus</option>
+      <option value="BPM">BPM</option>
+    </select><br>
+    first class mail type:
+    <select name="FirstClassMailType">
+      <option value="LETTER">Letter</option>
+      <option value="FLAT">Flat</option>
+      <option value="RETAIL">Retail</option>
+      <option value="POSTCARD">Postcard</option>
+      <option value="PACKAGE SERVICE">Package Service</option>
+    </select><br>
+
+    
+    ZipOrigination:<input type="text" name="ZipOrigination"><br>
+    ZipDestination:<input type="text" name="ZipDestination"><br>
+    Pounds:<input type="text" name="Pounds"><br>
+
+    <!--
+	<select name="Size">
+	  <option value="REGULAR">Regular</option>
+	  <option value="LARGE">Large</option>
+	</select><br>
+	-->
+
+
+    Container:
+    <select name="Container">
+      <option value="VARIABLE">VARIABLE</option>
+      <option value="FLAT RATE ENVELOPE">FLAT RATE ENVELOPE</option>
+      <option value="PADDED FLAT RATE ENVELOPE">PADDED FLAT RATE ENVELOPE</option>
+      <option value="LEGAL FLAT RATE ENVELOPE">LEGAL FLAT RATE ENVELOPE</option>
+      <option value="FIRST CLASS">SM FLAT RATE ENVELOPE</option>
+      <option value="WINDOW FLAT RATE ENVELOPE">WINDOW FLAT RATE ENVELOPE</option>
+      <option value="GIFT CARD FLAT RATE ENVELOPE">GIFT CARD FLAT RATE ENVELOPE</option>
+      <option value="SM FLAT RATE BOX">SM FLAT RATE BOX</option>
+      <option value="MD FLAT RATE BOX">MD FLAT RATE BOX</option>
+      <option value="LG FLAT RATE BOX">LG FLAT RATE BOX</option>
+      <option value="REGIONALRATEBOXA">REGIONALRATEBOXA</option>
+      <option value="REGIONALRATEBOXB">REGIONALRATEBOXB</option>
+      <option value="CUBIC PARCELS">CUBIC PARCELS</option>
+      <option value="CUBIC SOFT PACK">CUBIC SOFT PACK</option>
+    </select><br>
+    Note: "Cubic Soft Pack" and "Cubic Parcels" are only valid containers for "Priority Mail Cubic"
+    <br>
+    Width:<input type="text" name="Width"><br>
+    Length:<input type="text" name="Length"><br>
+    Height:<input type="text" name="Height"><br>
+    Girth:<input type="text" name="Girth"><br>
+    Value:<input type="text" name="Value"><br>
+    Amount to collect:<input type="text" name="AmountToCollect"><br>
+    Special services:<br>
+    <select name="SpecialService" multiple>
+      <option value='100'>Insurance</option>
+      <option value='101'>Insurance – Priority Mail Express</option>
+      <option value='102'>Return Receipt</option>
+      <option value='103'>Collect on Delivery</option>
+      <option value='104'>Certificate of Mailing (Form 3665)</option>
+      <option value='105'>Certified Mail</option>
+      <option value='106'>USPS Tracking</option>
+      <option value='107'>Return Receipt for Merchandise</option>
+      <option value='108'>Signature Confirmation</option>
+      <option value='109'>Registered Mail</option>
+      <option value='110'>Return Receipt Electronic</option>
+      <option value='112'>Registered mail COD collection Charge</option>
+      <option value='118'>Return Receipt – Priority Mail Express</option>
+      <option value='119'>Adult Signature Required</option>
+      <option value='120'>Adult Signature Restricted Delivery</option>
+      <option value='125'>Insurance – Priority Mail</option>
+      <option value='155'>USPS Tracking Electronic</option>
+      <option value='156'>Signature Confirmation Electronic</option>
+      <option value='160'>Certificate of Mailing (Form 3817)</option>
+      <option value='161'>Priority Mail Express 1030 AM Delivery</option>
+      <option value='170'>Certified Mail Restricted Delivery</option>
+      <option value='171'>Certified Mail Adult Signature Required</option>
+      <option value='172'>Certified Mail Adult Signature Restricted Delivery</option>
+      <option value='173'>Signature Confirm. Restrict. Delivery</option>
+      <option value='174'>Signature Confirmation Electronic Restricted Delivery</option>
+      <option value='175'>Collect on Delivery Restricted Delivery</option>
+      <option value='176'>Registered Mail Restricted Delivery</option>
+      <option value='177'>Insurance Restricted Delivery</option>
+      <option value='179'>Insurance Restrict.  Delivery – Priority Mail</option>
+      <option value='178'>Insurance Restrict. Delivery – Priority Mail Express</option>
+      <option value='180'>Insurance Restrict. Delivery (Bulk Only)</option>
+      <option value='190'>Special Handling - Fragile</option>
+    </select><br>
+    (hold control to select multiple special services if neccessary.)<br>
+    Content Type:
+    <select name="ContentType">
+      <option value="DEFAULT">Default</option>
+      <option value="HAZMAT">Hazmat</option>
+      <option value="CREMATEDREMAINS">Cremated remains</option>
+      <option value="FRAGILE">fragile</option>
+      <option value="PERISHABLE">perishable</option>
+      <option value="PHARMACEUTICALS">pharmaceuticals</option>
+      <option value="MEDICALSUPPLIES">medical supplies</option>
+      <option value="LIVES">lives</option>
+    </select><br>
+    Content description:
+    <select name="ContentDescription">
+      <option value="BEES">BEES</option>
+      <option value="DAYOLDPOULTRY">DAYOLDPOULTRY</option>
+      <option value="ADULTBIRDS">ADULTBIRDS</option>
+      <option value="OTHER">OTHER</option>
+    </select><br>
+    Is machinable:
+    <select name="Machinable">
+      <option value="true">True</option>
+      <option value="false">False</option>
+    </select><br>
+    Is ground only:
+    <select name="GroundOnly">
+      <option value="true">True</option>
+      <option value="false">False</option>
+    </select><br>
+  </form>
+  <div id="button_domestic" class="button">
+    Calculate postage
+  </div>
+
+  <h2 style="display:none;">International rates</h2>
+  <form>
+    User ID:<input type="text" name="USERID2"><br>
+    Pounds:<input type="text" name="Pounds2"><br>
+    Value of contents:<input type="text" name="ValueOfContents"><br>
+    Machinable:
+    <select name="Machinable2">
+      <option value="true">True</option>
+      <option value="false">False</option>
+    </select><br>
+    
+    Destination is a post office box:<select name="POBoxFlag">
+      <option value="Y">Yes</option>
+      <option value="N">No</option>
+    </select><br>
+
+    Contains a gift:<select name="GiftFlag">
+      <option value="Y">Yes</option>
+      <option value="N">No</option>
+    </select><br>
+    Origin Zip:<input type="text" name="OriginZip"><br>
+    
+    Width:<input type="text" name="Width2"><br>
+    Length:<input type="text" name="Length2"><br>
+    Height:<input type="text" name="Height2"><br>
+    Girth:<input type="text" name="Girth2"><br>
+
+    Destination country:
+    <select name="Country">
+      <option value="Abu Dhabi (United Arab Emirates)">Abu Dhabi (United Arab Emirates)</option>
+      <option value="Admiralty Islands (Papua New Guinea)">Admiralty Islands (Papua New Guinea)</option>
+      <option value="Afghanistan">Afghanistan</option>
+      <option value="Aitutaki, Cook Islands (New Zealand)">Aitutaki, Cook Islands (New Zealand)</option>
+      <option value="Ajman (United Arab Emirates)">Ajman (United Arab Emirates)</option>
+      <option value="Aland Island (Finland)">Aland Island (Finland)</option>
+      <option value="Albania">Albania</option>
+      <option value="Alberta (Canada)">Alberta (Canada)</option>
+      <option value="Alderney (Channel Islands) (United Kingdom)">Alderney (Channel Islands) (United Kingdom)</option>
+      <option value="Algeria">Algeria</option>
+      <option value="Alhucemas (Spain)">Alhucemas (Spain)</option>
+      <option value="Alofi Island (New Caledonia)">Alofi Island (New Caledonia)</option>
+      <option value="American Samoa, United State">American Samoa, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Andaman Islands (India)">Andaman Islands (India)</option>
+      <option value="Andorra">Andorra</option>
+      <option value="Angola">Angola</option>
+      <option value="Anguilla">Anguilla</option>
+      <option value="Anjouan (Comoros)">Anjouan (Comoros)</option>
+      <option value="Annobon Island (Equatorial Guinea)">Annobon Island (Equatorial Guinea)</option>
+      <option value="Antigua (Antigua and Barbuda)">Antigua (Antigua and Barbuda)</option>
+      <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+      <option value="Argentina">Argentina</option>
+      <option value="Armenia">Armenia</option>
+      <option value="Aruba">Aruba</option>
+      <option value="Ascension">Ascension</option>
+      <option value="Astypalaia (Greece)">Astypalaia (Greece)</option>
+      <option value="Atafu (Samoa)">Atafu (Samoa)</option>
+      <option value="Atiu, Cook Islands (New Zealand)">Atiu, Cook Islands (New Zealand)</option>
+      <option value="Australia">Australia</option>
+      <option value="Austria">Austria</option>
+      <option value="Avarua (New Zealand)">Avarua (New Zealand)</option>
+      <option value="Azerbaijan">Azerbaijan</option>
+      <option value="Azores (Portugal)">Azores (Portugal)</option>
+      <option value="Bahamas">Bahamas</option>
+      <option value="Bahrain">Bahrain</option>
+      <option value="Balearic Islands (Spain)">Balearic Islands (Spain)</option>
+      <option value="Balochistan (Pakistan)">Balochistan (Pakistan)</option>
+      <option value="Bangladesh">Bangladesh</option>
+      <option value="Banks Island (Vanuatu)">Banks Island (Vanuatu)</option>
+      <option value="Barbados">Barbados</option>
+      <option value="Barbuda (Antigua and Barbuda)">Barbuda (Antigua and Barbuda)</option>
+      <option value="Barthelemy (Guadeloupe)">Barthelemy (Guadeloupe)</option>
+      <option value="Belarus">Belarus</option>
+      <option value="Belgium">Belgium</option>
+      <option value="Belize">Belize</option>
+      <option value="Benin">Benin</option>
+      <option value="Bermuda">Bermuda</option>
+      <option value="Bhutan">Bhutan</option>
+      <option value="Bismark Archipelago (Papua New Guinea)">Bismark Archipelago (Papua New Guinea)</option>
+      <option value="Bolivia">Bolivia</option>
+      <option value="Bonaire, Sint Eustatius, and Saba">Bonaire, Sint Eustatius, and Saba</option>
+      <option value="Bora Bora (French Polynesia)">Bora Bora (French Polynesia)</option>
+      <option value="Borneo (Indonesia)">Borneo (Indonesia)</option>
+      <option value="Bosnia-Herzegovina">Bosnia-Herzegovina</option>
+      <option value="Botswana">Botswana</option>
+      <option value="Bougainville (Papua New Guinea)">Bougainville (Papua New Guinea)</option>
+      <option value="Bourbon (Reunion)">Bourbon (Reunion)</option>
+      <option value="Brazil">Brazil</option>
+      <option value="British Columbia (Canada)">British Columbia (Canada)</option>
+      <option value="British Guiana (Guyana)">British Guiana (Guyana)</option>
+      <option value="British Virgin Islands">British Virgin Islands</option>
+      <option value="Brunei Darussalam">Brunei Darussalam</option>
+      <option value="Buka (Papua New Guinea)">Buka (Papua New Guinea)</option>
+      <option value="Bulgaria">Bulgaria</option>
+      <option value="Burkina Faso">Burkina Faso</option>
+      <option value="Burma">Burma</option>
+      <option value="Burundi">Burundi</option>
+      <option value="Caicos Islands (Turks and Caicos Islands)">Caicos Islands (Turks and Caicos Islands)</option>
+      <option value="Cambodia">Cambodia</option>
+      <option value="Cameroon">Cameroon</option>
+      <option value="Canada">Canada</option>
+      <option value="Canary Islands (Spain)">Canary Islands (Spain)</option>
+      <option value="Canton Island (Kiribati)">Canton Island (Kiribati)</option>
+      <option value="Cape Verde">Cape Verde</option>
+      <option value="Cayman Islands">Cayman Islands</option>
+      <option value="Central African Republic">Central African Republic</option>
+      <option value="Ceuta (Spain)">Ceuta (Spain)</option>
+      <option value="Ceylon (Sri Lanka)">Ceylon (Sri Lanka)</option>
+      <option value="Chad">Chad</option>
+      <option value="Chaferinas Islands (Spain)">Chaferinas Islands (Spain)</option>
+      <option value="Chalki (Greece)">Chalki (Greece)</option>
+      <option value="Channel Islands (Jersey, Guernsey, Alderney">Channel Islands (Jersey, Guernsey, Alderney</option>
+      <option value="and Sark) (United Kingdom)">and Sark) (United Kingdom)</option>
+      <option value="Chile">Chile</option>
+      <option value="China">China</option>
+      <option value="Christiansted, US Virgin Islands, United State">Christiansted, US Virgin Islands, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Christmas Island (Australia)">Christmas Island (Australia)</option>
+      <option value="Christmas Island (Kiribati)">Christmas Island (Kiribati)</option>
+      <option value="Chuuk, Micronesia, United State">Chuuk, Micronesia, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Cocos Island (Australia)">Cocos Island (Australia)</option>
+      <option value="Colombia">Colombia</option>
+      <option value="Comoros">Comoros</option>
+      <option value="Congo, Democratic Republic of the">Congo, Democratic Republic of the</option>
+      <option value="Congo, Republic of the">Congo, Republic of the</option>
+      <option value="Cook Islands (New Zealand)">Cook Islands (New Zealand)</option>
+      <option value="Corisco Island (Equatorial Guinea)">Corisco Island (Equatorial Guinea)</option>
+      <option value="Corsica (France)">Corsica (France)</option>
+      <option value="Costa Rica">Costa Rica</option>
+      <option value="Cote d’Ivoire">Cote d’Ivoire</option>
+      <option value="Crete (Greece)">Crete (Greece)</option>
+      <option value="Croatia">Croatia</option>
+      <option value="Cuba">Cuba</option>
+      <option value="Cumino Island (Malta)">Cumino Island (Malta)</option>
+      <option value="Curacao">Curacao</option>
+      <option value="Cyjrenaica (Libya)">Cyjrenaica (Libya)</option>
+      <option value="Cyprus">Cyprus</option>
+      <option value="Czech Republic">Czech Republic</option>
+      <option value="Dahomey (Benin)">Dahomey (Benin)</option>
+      <option value="Damao (India)">Damao (India)</option>
+      <option value="Danger Islands (New Zealand)">Danger Islands (New Zealand)</option>
+      <option value="Denmark">Denmark</option>
+      <option value="Desirade Island (Guadeloupe)">Desirade Island (Guadeloupe)</option>
+      <option value="Diu (India)">Diu (India)</option>
+      <option value="Djibouti">Djibouti</option>
+      <option value="Dodecanese Islands (Greece)">Dodecanese Islands (Greece)</option>
+      <option value="Doha (Qatar)">Doha (Qatar)</option>
+      <option value="Dominica">Dominica</option>
+      <option value="Dominican Republic">Dominican Republic</option>
+      <option value="Dubai (United Arab Emirates)">Dubai (United Arab Emirates)</option>
+      <option value="East Timor (Timor-Leste)">East Timor (Timor-Leste)</option>
+      <option value="Ebeye, Marshall Islands, United State">Ebeye, Marshall Islands, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Ecuador">Ecuador</option>
+      <option value="Egypt">Egypt</option>
+      <option value="Eire (Ireland)">Eire (Ireland)</option>
+      <option value="El Salvador">El Salvador</option>
+      <option value="Ellice Islands (Tuvalu)">Ellice Islands (Tuvalu)</option>
+      <option value="Elobey Islands (Equatorial Guinea)">Elobey Islands (Equatorial Guinea)</option>
+      <option value="Enderbury Island (Kiribati)">Enderbury Island (Kiribati)</option>
+      <option value="England (United Kingdom)">England (United Kingdom)</option>
+      <option value="Equatorial Guinea">Equatorial Guinea</option>
+      <option value="Eritrea">Eritrea</option>
+      <option value="Estonia">Estonia</option>
+      <option value="Eswatini">Eswatini</option>
+      <option value="Ethiopia">Ethiopia</option>
+      <option value="Fakaofo (Samoa)">Fakaofo (Samoa)</option>
+      <option value="Falkland Islands">Falkland Islands</option>
+      <option value="Fanning Island (Kiribati)">Fanning Island (Kiribati)</option>
+      <option value="Faroe Islands">Faroe Islands</option>
+      <option value="Fernando Po (Equatorial Guinea)">Fernando Po (Equatorial Guinea)</option>
+      <option value="Fezzan (Libya)">Fezzan (Libya)</option>
+      <option value="Fiji">Fiji</option>
+      <option value="Finland">Finland</option>
+      <option value="Formosa (Taiwan)">Formosa (Taiwan)</option>
+      <option value="France">France</option>
+      <option value="Frederiksted, US Virgin Islands, United State">Frederiksted, US Virgin Islands, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="French Guiana">French Guiana</option>
+      <option value="French Oceania (French Polynesia)">French Oceania (French Polynesia)</option>
+      <option value="French Polynesia">French Polynesia</option>
+      <option value="French West Indies (Guadeloupe)">French West Indies (Guadeloupe)</option>
+      <option value="French West Indies (Martinique)">French West Indies (Martinique)</option>
+      <option value="Friendly Islands (Tonga)">Friendly Islands (Tonga)</option>
+      <option value="Fujairah (United Arab Emirates)">Fujairah (United Arab Emirates)</option>
+      <option value="Futuna (Wallis and Futuna Islands)">Futuna (Wallis and Futuna Islands)</option>
+      <option value="Gabon">Gabon</option>
+      <option value="Gambia">Gambia</option>
+      <option value="Gambier (French Polynesia)">Gambier (French Polynesia)</option>
+      <option value="Georgia, Republic of">Georgia, Republic of</option>
+      <option value="Germany">Germany</option>
+      <option value="Ghana">Ghana</option>
+      <option value="Gibraltar">Gibraltar</option>
+      <option value="Gilbert Islands (Kiribati)">Gilbert Islands (Kiribati)</option>
+      <option value="Goa (India)">Goa (India)</option>
+      <option value="Gozo Island (Malta)">Gozo Island (Malta)</option>
+      <option value="Grand Comoro (Comoros)">Grand Comoro (Comoros)</option>
+      <option value="Great Britain (United Kingdom)">Great Britain (United Kingdom)</option>
+      <option value="Greece">Greece</option>
+      <option value="Greenland">Greenland</option>
+      <option value="Grenada">Grenada</option>
+      <option value="Grenadines (Saint Vincent and the Grenadines)">Grenadines (Saint Vincent and the Grenadines)</option>
+      <option value="Guadeloupe">Guadeloupe</option>
+      <option value="Guam, United States (Domestic Mail) See DMM 60">Guam, United States (Domestic Mail) See DMM 60</option>
+      <option value="Guatemala">Guatemala</option>
+      <option value="Guernsey (Channel Islands) (United Kingdom)">Guernsey (Channel Islands) (United Kingdom)</option>
+      <option value="Guinea">Guinea</option>
+      <option value="Guinea–Bissau">Guinea–Bissau</option>
+      <option value="Guyana">Guyana</option>
+      <option value="Hainan Island (China)">Hainan Island (China)</option>
+      <option value="Haiti">Haiti</option>
+      <option value="Hashemite Kingdom (Jordan)">Hashemite Kingdom (Jordan)</option>
+      <option value="Hervey, Cook Islands (New Zealand)">Hervey, Cook Islands (New Zealand)</option>
+      <option value="Hivaoa (French Polynesia)">Hivaoa (French Polynesia)</option>
+      <option value="Holland (Netherlands)">Holland (Netherlands)</option>
+      <option value="Honduras">Honduras</option>
+      <option value="Hong Kong">Hong Kong</option>
+      <option value="Huahine (French Polynesia)">Huahine (French Polynesia)</option>
+      <option value="Huan Island (New Caledonia)">Huan Island (New Caledonia)</option>
+      <option value="Hungary">Hungary</option>
+      <option value="Iceland">Iceland</option>
+      <option value="India">India</option>
+      <option value="Indonesia">Indonesia</option>
+      <option value="Iran">Iran</option>
+      <option value="Iraq">Iraq</option>
+      <option value="Ireland">Ireland</option>
+      <option value="Irian Barat (Indonesia)">Irian Barat (Indonesia)</option>
+      <option value="Isle of Man (United Kingdom)">Isle of Man (United Kingdom)</option>
+      <option value="Isle of Pines (New Caledonia)">Isle of Pines (New Caledonia)</option>
+      <option value="Isle of Pines, West Indies (Cuba)">Isle of Pines, West Indies (Cuba)</option>
+      <option value="Israel">Israel</option>
+      <option value="Issas (Djibouti)">Issas (Djibouti)</option>
+      <option value="Italy">Italy</option>
+      <option value="Ivory Coast (Cote d’Ivoire)">Ivory Coast (Cote d’Ivoire)</option>
+      <option value="Jamaica">Jamaica</option>
+      <option value="Japan">Japan</option>
+      <option value="Jersey (Channel Islands) (United Kingdom)">Jersey (Channel Islands) (United Kingdom)</option>
+      <option value="Johore (Malaysia)">Johore (Malaysia)</option>
+      <option value="Jordan">Jordan</option>
+      <option value="Kalymnos (Greece)">Kalymnos (Greece)</option>
+      <option value="Kampuchea (Cambodia)">Kampuchea (Cambodia)</option>
+      <option value="Karpathos (Greece)">Karpathos (Greece)</option>
+      <option value="Kassos (Greece)">Kassos (Greece)</option>
+      <option value="Kastellorizon (Greece)">Kastellorizon (Greece)</option>
+      <option value="Kazakhstan">Kazakhstan</option>
+      <option value="Kedah (Malaysia)">Kedah (Malaysia)</option>
+      <option value="Keeling Islands (Australia)">Keeling Islands (Australia)</option>
+      <option value="Kelantan (Malaysia)">Kelantan (Malaysia)</option>
+      <option value="Kenya">Kenya</option>
+      <option value="Kingshill, US Virgin Islands, United State">Kingshill, US Virgin Islands, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Kiribati">Kiribati</option>
+      <option value="Korea, Democratic People’s Republic o">Korea, Democratic People’s Republic o</option>
+      <option value="(North Korea)">(North Korea)</option>
+      <option value="Korea, Republic of (South Korea)">Korea, Republic of (South Korea)</option>
+      <option value="Koror (Palau), United States (Domestic Mail) See DMM 60">Koror (Palau), United States (Domestic Mail) See DMM 60</option>
+      <option value="Kos (Greece)">Kos (Greece)</option>
+      <option value="Kosovo, Republic of">Kosovo, Republic of</option>
+      <option value="Kosrae, Micronesia, United State">Kosrae, Micronesia, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Kowloon (Hong Kong)">Kowloon (Hong Kong)</option>
+      <option value="Kuwait">Kuwait</option>
+      <option value="Kwajalein, Marshall Islands, United State">Kwajalein, Marshall Islands, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Kyrgyzstan">Kyrgyzstan</option>
+      <option value="Labrador (Canada)">Labrador (Canada)</option>
+      <option value="Labuan (Malaysia)">Labuan (Malaysia)</option>
+      <option value="Laos">Laos</option>
+      <option value="Latvia">Latvia</option>
+      <option value="Lebanon">Lebanon</option>
+      <option value="Leipsos (Greece)">Leipsos (Greece)</option>
+      <option value="Leros (Greece)">Leros (Greece)</option>
+      <option value="Les Saints Island (Guadeloupe)">Les Saints Island (Guadeloupe)</option>
+      <option value="Lesotho">Lesotho</option>
+      <option value="Liberia">Liberia</option>
+      <option value="Libya">Libya</option>
+      <option value="Liechtenstein">Liechtenstein</option>
+      <option value="Lithuania">Lithuania</option>
+      <option value="Lord Howe Island (Australia)">Lord Howe Island (Australia)</option>
+      <option value="Loyalty Islands (New Caledonia)">Loyalty Islands (New Caledonia)</option>
+      <option value="Luxembourg">Luxembourg</option>
+      <option value="Macao">Macao</option>
+      <option value="Macau (Macao)">Macau (Macao)</option>
+      <option value="Macedonia, Republic of">Macedonia, Republic of</option>
+      <option value="Madagascar">Madagascar</option>
+      <option value="Madeira Islands (Portugal)">Madeira Islands (Portugal)</option>
+      <option value="Majuro, Marshall Islands, United State">Majuro, Marshall Islands, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Malacca (Malaysia)">Malacca (Malaysia)</option>
+      <option value="Malawi">Malawi</option>
+      <option value="Malaysia">Malaysia</option>
+      <option value="Maldives">Maldives</option>
+      <option value="Mali">Mali</option>
+      <option value="Malta">Malta</option>
+      <option value="Manahiki (New Zealand)">Manahiki (New Zealand)</option>
+      <option value="Manchuria (China)">Manchuria (China)</option>
+      <option value="Manitoba (Canada)">Manitoba (Canada)</option>
+      <option value="Manua Islands, American Samoa">Manua Islands, American Samoa</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Marie Galante (Guadeloupe)">Marie Galante (Guadeloupe)</option>
+      <option value="Marquesas Islands (French Polynesia)">Marquesas Islands (French Polynesia)</option>
+      <option value="Marshall Islands, Republic of the">Marshall Islands, Republic of the</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Martinique">Martinique</option>
+      <option value="Mauritania">Mauritania</option>
+      <option value="Mauritius">Mauritius</option>
+      <option value="Mayotte (France)">Mayotte (France)</option>
+      <option value="Melilla (Spain)">Melilla (Spain)</option>
+      <option value="Mexico">Mexico</option>
+      <option value="Micronesia, Federated States of">Micronesia, Federated States of</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Miquelon (Saint Pierre and Miquelon)">Miquelon (Saint Pierre and Miquelon)</option>
+      <option value="Moheli (Comoros)">Moheli (Comoros)</option>
+      <option value="Moldova">Moldova</option>
+      <option value="Monaco (France)">Monaco (France)</option>
+      <option value="Mongolia">Mongolia</option>
+      <option value="Montenegro">Montenegro</option>
+      <option value="Montserrat">Montserrat</option>
+      <option value="Moorea (French Polynesia)">Moorea (French Polynesia)</option>
+      <option value="Morocco">Morocco</option>
+      <option value="Mozambique">Mozambique</option>
+      <option value="Muscat (Oman)">Muscat (Oman)</option>
+      <option value="Myanmar (Burma)">Myanmar (Burma)</option>
+      <option value="Namibia">Namibia</option>
+      <option value="Nansil Islands (Japan)">Nansil Islands (Japan)</option>
+      <option value="Nauru">Nauru</option>
+      <option value="Negri Sembilan (Malaysia)">Negri Sembilan (Malaysia)</option>
+      <option value="Nepal">Nepal</option>
+      <option value="Netherlands">Netherlands</option>
+      <option value="Nevis (Saint Kitts and Nevis)">Nevis (Saint Kitts and Nevis)</option>
+      <option value="New Britain (Papua New Guinea)">New Britain (Papua New Guinea)</option>
+      <option value="New Brunswick (Canada)">New Brunswick (Canada)</option>
+      <option value="New Caledonia">New Caledonia</option>
+      <option value="New Hanover (Papua New Guinea)">New Hanover (Papua New Guinea)</option>
+      <option value="New Hebrides (Vanuatu)">New Hebrides (Vanuatu)</option>
+      <option value="New Ireland (Papua New Guinea)">New Ireland (Papua New Guinea)</option>
+      <option value="New South Wales (Australia)">New South Wales (Australia)</option>
+      <option value="New Zealand">New Zealand</option>
+      <option value="Newfoundland (Canada)">Newfoundland (Canada)</option>
+      <option value="Nicaragua">Nicaragua</option>
+      <option value="Niger">Niger</option>
+      <option value="Nigeria">Nigeria</option>
+      <option value="Nissiros (Greece)">Nissiros (Greece)</option>
+      <option value="Niue (New Zealand)">Niue (New Zealand)</option>
+      <option value="Norfolk Island (Australia)">Norfolk Island (Australia)</option>
+      <option value="North Borneo (Malaysia)">North Borneo (Malaysia)</option>
+      <option value="North Korea (Korea, Democratic People’">North Korea (Korea, Democratic People’</option>
+      <option value="Republic of)">Republic of)</option>
+      <option value="Northern Ireland (United Kingdom)">Northern Ireland (United Kingdom)</option>
+      <option value="Northern Mariana Islands, Commonwealth of">Northern Mariana Islands, Commonwealth of</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Northwest Territory (Canada)">Northwest Territory (Canada)</option>
+      <option value="Norway">Norway</option>
+      <option value="Nova Scotia (Canada)">Nova Scotia (Canada)</option>
+      <option value="Nukahiva (French Polynesia)">Nukahiva (French Polynesia)</option>
+      <option value="Nukunonu (Samoa)">Nukunonu (Samoa)</option>
+      <option value="Ocean Island (Kiribati)">Ocean Island (Kiribati)</option>
+      <option value="Okinawa (Japan)">Okinawa (Japan)</option>
+      <option value="Oman">Oman</option>
+      <option value="Ontario (Canada)">Ontario (Canada)</option>
+      <option value="Pago Pago, American Samoa, United State">Pago Pago, American Samoa, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Pahang (Malaysia)">Pahang (Malaysia)</option>
+      <option value="Pakistan">Pakistan</option>
+      <option value="Palau, United States (Domestic Mail) See DMM 60">Palau, United States (Domestic Mail) See DMM 60</option>
+      <option value="Palmerston, Avarua (New Zealand)">Palmerston, Avarua (New Zealand)</option>
+      <option value="Panama">Panama</option>
+      <option value="Papua New Guinea">Papua New Guinea</option>
+      <option value="Paraguay">Paraguay</option>
+      <option value="Parry, Cook Islands (New Zealand)">Parry, Cook Islands (New Zealand)</option>
+      <option value="Patmos (Greece)">Patmos (Greece)</option>
+      <option value="Pemba (Tanzania)">Pemba (Tanzania)</option>
+      <option value="Penang (Malaysia)">Penang (Malaysia)</option>
+      <option value="Penghu Islands (Taiwan)">Penghu Islands (Taiwan)</option>
+      <option value="Penon de Velez de la Gomera (Spain)">Penon de Velez de la Gomera (Spain)</option>
+      <option value="Penrhyn, Tongareva (New Zealand)">Penrhyn, Tongareva (New Zealand)</option>
+      <option value="Perak (Malaysia)">Perak (Malaysia)</option>
+      <option value="Perlis (Malaysia)">Perlis (Malaysia)</option>
+      <option value="Persia (Iran)">Persia (Iran)</option>
+      <option value="Peru">Peru</option>
+      <option value="Pescadores Islands (Taiwan)">Pescadores Islands (Taiwan)</option>
+      <option value="Petite Terre (Guadeloupe)">Petite Terre (Guadeloupe)</option>
+      <option value="Philippines">Philippines</option>
+      <option value="Pitcairn Island">Pitcairn Island</option>
+      <option value="Pohnpei, Micronesia, United State">Pohnpei, Micronesia, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Poland">Poland</option>
+      <option value="Portugal">Portugal</option>
+      <option value="Prince Edward Island (Canada)">Prince Edward Island (Canada)</option>
+      <option value="Puerto Rico, United States (Domestic Mail) See DMM 60">Puerto Rico, United States (Domestic Mail) See DMM 60</option>
+      <option value="Pukapuka (New Zealand)">Pukapuka (New Zealand)</option>
+      <option value="Qatar">Qatar</option>
+      <option value="Quebec (Canada)">Quebec (Canada)</option>
+      <option value="Queensland (Australia)">Queensland (Australia)</option>
+      <option value="Quemoy (Taiwan)">Quemoy (Taiwan)</option>
+      <option value="Raiatea (French Polynesia)">Raiatea (French Polynesia)</option>
+      <option value="Rakaanga (New Zealand)">Rakaanga (New Zealand)</option>
+      <option value="Rapa (French Polynesia)">Rapa (French Polynesia)</option>
+      <option value="Rarotonga, Cook Islands (New Zealand)">Rarotonga, Cook Islands (New Zealand)</option>
+      <option value="Ras al Kaimah (United Arab Emirates)">Ras al Kaimah (United Arab Emirates)</option>
+      <option value="Redonda (Antigua and Barbuda)">Redonda (Antigua and Barbuda)</option>
+      <option value="Reunion">Reunion</option>
+      <option value="Rio Muni (Equatorial Guinea)">Rio Muni (Equatorial Guinea)</option>
+      <option value="Rodos (Greece)">Rodos (Greece)</option>
+      <option value="Rodrigues (Mauritius)">Rodrigues (Mauritius)</option>
+      <option value="Romania">Romania</option>
+      <option value="Rota, Northern Mariana Islands">Rota, Northern Mariana Islands</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Russia">Russia</option>
+      <option value="Rwanda">Rwanda</option>
+      <option value="Saba (Bonaire, Sint Eustatius, and Saba)">Saba (Bonaire, Sint Eustatius, and Saba)</option>
+      <option value="Sabah (Malaysia)">Sabah (Malaysia)</option>
+      <option value="Saint Barthelemy (Guadeloupe)">Saint Barthelemy (Guadeloupe)</option>
+      <option value="Saint Bartholomew (Guadeloupe)">Saint Bartholomew (Guadeloupe)</option>
+      <option value="Saint Croix, US Virgin Islands">Saint Croix, US Virgin Islands</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Saint Helena">Saint Helena</option>
+      <option value="Saint John, US Virgin Islands">Saint John, US Virgin Islands</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+      <option value="Saint Lucia">Saint Lucia</option>
+      <option value="Saint Martin (French) (Guadeloupe)">Saint Martin (French) (Guadeloupe)</option>
+      <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+      <option value="Saint Thomas, US Virgin Islands">Saint Thomas, US Virgin Islands</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+      <option value="Sainte Marie de Madagascar (Madagascar)">Sainte Marie de Madagascar (Madagascar)</option>
+      <option value="Saipan, Northern Mariana Islands">Saipan, Northern Mariana Islands</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Salvador (El Salvador)">Salvador (El Salvador)</option>
+      <option value="Samoa">Samoa</option>
+      <option value="Samoa, American, United State">Samoa, American, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="San Marino">San Marino</option>
+      <option value="Santa Cruz Islands (Solomon Islands)">Santa Cruz Islands (Solomon Islands)</option>
+      <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+      <option value="Sarawak (Malaysia)">Sarawak (Malaysia)</option>
+      <option value="Sark (Channel Islands) (United Kingdom)">Sark (Channel Islands) (United Kingdom)</option>
+      <option value="Saskatchewan (Canada)">Saskatchewan (Canada)</option>
+      <option value="Saudi Arabia">Saudi Arabia</option>
+      <option value="Savage Island, Niue (New Zealand)">Savage Island, Niue (New Zealand)</option>
+      <option value="Savaii Island (Samoa)">Savaii Island (Samoa)</option>
+      <option value="Scotland (United Kingdom)">Scotland (United Kingdom)</option>
+      <option value="Seberang Perai (Malaysia)">Seberang Perai (Malaysia)</option>
+      <option value="Selangor (Malaysia)">Selangor (Malaysia)</option>
+      <option value="Senegal">Senegal</option>
+      <option value="Serbia, Republic of">Serbia, Republic of</option>
+      <option value="Seychelles">Seychelles</option>
+      <option value="Sharja (United Arab Emirates)">Sharja (United Arab Emirates)</option>
+      <option value="Shikoku (Japan)">Shikoku (Japan)</option>
+      <option value="Sierra Leone">Sierra Leone</option>
+      <option value="Sikkim (India)">Sikkim (India)</option>
+      <option value="Singapore">Singapore</option>
+      <option value="Sint Eustatius (Bonaire, Sint Eustatius, and Saba)">Sint Eustatius (Bonaire, Sint Eustatius, and Saba)</option>
+      <option value="Sint Maarten (Dutch)">Sint Maarten (Dutch)</option>
+      <option value="Slovak Republic (Slovakia)">Slovak Republic (Slovakia)</option>
+      <option value="Slovenia">Slovenia</option>
+      <option value="Society Islands (French Polynesia)">Society Islands (French Polynesia)</option>
+      <option value="Solomon Islands">Solomon Islands</option>
+      <option value="Somali Democratic Republic (Somalia)">Somali Democratic Republic (Somalia)</option>
+      <option value="Somalia">Somalia</option>
+      <option value="Somaliland (Somalia)">Somaliland (Somalia)</option>
+      <option value="South Africa">South Africa</option>
+      <option value="South Australia (Australia)">South Australia (Australia)</option>
+      <option value="South Georgia (Falkland Islands)">South Georgia (Falkland Islands)</option>
+      <option value="South Korea (Korea, Republic of)">South Korea (Korea, Republic of)</option>
+      <option value="Spain">Spain</option>
+      <option value="Spitzbergen (Norway)">Spitzbergen (Norway)</option>
+      <option value="Sri Lanka">Sri Lanka</option>
+      <option value="Sudan">Sudan</option>
+      <option value="Suriname">Suriname</option>
+      <option value="Suwarrow Islands (New Zealand)">Suwarrow Islands (New Zealand)</option>
+      <option value="Swain’s Island, American Samoa">Swain’s Island, American Samoa</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Swan Islands (Honduras)">Swan Islands (Honduras)</option>
+      <option value="Swaziland (Eswatini)">Swaziland (Eswatini)</option>
+      <option value="Sweden">Sweden</option>
+      <option value="Switzerland">Switzerland</option>
+      <option value="Symi (Greece)">Symi (Greece)</option>
+      <option value="Syrian Arab Republic (Syria)">Syrian Arab Republic (Syria)</option>
+      <option value="Tahaa (French Polynesia)">Tahaa (French Polynesia)</option>
+      <option value="Tahiti (French Polynesia)">Tahiti (French Polynesia)</option>
+      <option value="Taiwan">Taiwan</option>
+      <option value="Tajikistan">Tajikistan</option>
+      <option value="Tanzania">Tanzania</option>
+      <option value="Tasmania (Australia)">Tasmania (Australia)</option>
+      <option value="Tchad (Chad)">Tchad (Chad)</option>
+      <option value="Thailand">Thailand</option>
+      <option value="Thursday Island (Australia)">Thursday Island (Australia)</option>
+      <option value="Tibet (China)">Tibet (China)</option>
+      <option value="Tilos (Greece)">Tilos (Greece)</option>
+      <option value="Timor (Indonesia)">Timor (Indonesia)</option>
+      <option value="Timor-Leste, Democratic Republic of">Timor-Leste, Democratic Republic of</option>
+      <option value="Tinian, Northern Mariana Islands">Tinian, Northern Mariana Islands</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Tobago (Trinidad and Tobago)">Tobago (Trinidad and Tobago)</option>
+      <option value="Togo">Togo</option>
+      <option value="Tokelau (New Zealand)">Tokelau (New Zealand)</option>
+      <option value="Tonga">Tonga</option>
+      <option value="Tongareva (New Zealand)">Tongareva (New Zealand)</option>
+      <option value="Tori Shima (Japan)">Tori Shima (Japan)</option>
+      <option value="Torres Island (Vanuatu)">Torres Island (Vanuatu)</option>
+      <option value="Trans-Jordan, Hashemite Kingdom (Jordan)">Trans-Jordan, Hashemite Kingdom (Jordan)</option>
+      <option value="Transkei (South Africa)">Transkei (South Africa)</option>
+      <option value="Trengganu (Malaysia)">Trengganu (Malaysia)</option>
+      <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+      <option value="Tripolitania (Libya)">Tripolitania (Libya)</option>
+      <option value="Tristan da Cunha">Tristan da Cunha</option>
+      <option value="Trucial States (United Arab Emirates)">Trucial States (United Arab Emirates)</option>
+      <option value="Tuamotou (French Polynesia)">Tuamotou (French Polynesia)</option>
+      <option value="Tubuai (French Polynesia)">Tubuai (French Polynesia)</option>
+      <option value="Tunisia">Tunisia</option>
+      <option value="Turkey">Turkey</option>
+      <option value="Turkmenistan">Turkmenistan</option>
+      <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+      <option value="Tutuila Island, American Samoa">Tutuila Island, American Samoa</option>
+      <option value="United States (Domestic Mail) See DMM 60">United States (Domestic Mail) See DMM 60</option>
+      <option value="Tuvalu">Tuvalu</option>
+      <option value="Uganda">Uganda</option>
+      <option value="Ukraine">Ukraine</option>
+      <option value="Umm al Quaiwain (United Arab Emirates)">Umm al Quaiwain (United Arab Emirates)</option>
+      <option value="Umm Said (Qatar)">Umm Said (Qatar)</option>
+      <option value="United Arab Emirates">United Arab Emirates</option>
+      <option value="United Kingdom of Great Britain and Northern Ireland">United Kingdom of Great Britain and Northern Ireland</option>
+      <option value="United Nations, New York, United State">United Nations, New York, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Upolu Island (Samoa)">Upolu Island (Samoa)</option>
+      <option value="Uruguay">Uruguay</option>
+      <option value="Uzbekistan">Uzbekistan</option>
+      <option value="Vanuatu">Vanuatu</option>
+      <option value="Vatican City">Vatican City</option>
+      <option value="Venezuela">Venezuela</option>
+      <option value="Victoria (Australia)">Victoria (Australia)</option>
+      <option value="Vietnam">Vietnam</option>
+      <option value="Virgin Islands (British)">Virgin Islands (British)</option>
+      <option value="Virgin Islands (US), United State">Virgin Islands (US), United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Wales (United Kingdom)">Wales (United Kingdom)</option>
+      <option value="Wallis and Futuna Islands">Wallis and Futuna Islands</option>
+      <option value="Wellesley, Province (Malaysia)">Wellesley, Province (Malaysia)</option>
+      <option value="West New Guinea (Indonesia)">West New Guinea (Indonesia)</option>
+      <option value="Western Australia (Australia)">Western Australia (Australia)</option>
+      <option value="Yap, Micronesia, United State">Yap, Micronesia, United State</option>
+      <option value="(Domestic Mail) See DMM 60">(Domestic Mail) See DMM 60</option>
+      <option value="Yemen">Yemen</option>
+      <option value="Yukon Territory (Canada)">Yukon Territory (Canada)</option>
+      <option value="Zafarani Islands (Spain)">Zafarani Islands (Spain)</option>
+      <option value="Zambia">Zambia</option>
+      <option value="Zanzibar (Tanzania)">Zanzibar (Tanzania)</option>
+      <option value="Zimbabwe">Zimbabwe</option>
+
+    </select><br>
+    Mail type:
+    <select name="MailType">
+      <option value="ALL">All</option>
+      <option value="PACKAGE">Package</option>
+      <option value="POSTCARDS">Postcards</option>
+      <option value="ENVELOPE">Envelope</option>
+      <option value="LETTER">Letter</option>
+      <option value="LARGEENVELOPE">Large Envelope</option>
+      <option value="FLATRATE">Flat rate</option>
+    </select><br>
+    Commercial:
+    <select name="CommercialFlag">
+      <option value="Y">Yes</option>
+      <option value="N">No</option>
+    </select><br>
+    Commercial Plus:
+    <select name="CommercialPlusFlag">
+      <option value="Y">Yes</option>
+      <option value="N">No</option>
+    </select><br>
+    Size:
+    <select name="Size2">
+      <option value="REGULAR">Regular</option>
+      <option value="LARGE">Large</option>
+    </select><br>
+    Container:
+    <select name="Container2">
+      <option value="VARIABLE">VARIABLE</option>
+      <option value="FLAT RATE ENVELOPE">FLAT RATE ENVELOPE</option>
+      <option value="PADDED FLAT RATE ENVELOPE">PADDED FLAT RATE ENVELOPE</option>
+      <option value="LEGAL FLAT RATE ENVELOPE">LEGAL FLAT RATE ENVELOPE</option>
+      <option value="FIRST CLASS">SM FLAT RATE ENVELOPE</option>
+      <option value="WINDOW FLAT RATE ENVELOPE">WINDOW FLAT RATE ENVELOPE</option>
+      <option value="GIFT CARD FLAT RATE ENVELOPE">GIFT CARD FLAT RATE ENVELOPE</option>
+      <option value="SM FLAT RATE BOX">SM FLAT RATE BOX</option>
+      <option value="MD FLAT RATE BOX">MD FLAT RATE BOX</option>
+      <option value="LG FLAT RATE BOX">LG FLAT RATE BOX</option>
+      <option value="REGIONALRATEBOXA">REGIONALRATEBOXA</option>
+      <option value="REGIONALRATEBOXB">REGIONALRATEBOXB</option>
+      <option value="CUBIC PARCELS">CUBIC PARCELS</option>
+      <option value="CUBIC SOFT PACK">CUBIC SOFT PACK</option>
+    </select><br>
+    
+  </form>
+  <div id="button_intl" class="button">
+    Calculate postage
+  </div>
+
+
+  
+  <br>
+  <div id="errors">
+    
+  </div><br>
+  <br>
+  <div id="mainrate">
+  </div>
+  <div id="results">
+  </div>
+</body>

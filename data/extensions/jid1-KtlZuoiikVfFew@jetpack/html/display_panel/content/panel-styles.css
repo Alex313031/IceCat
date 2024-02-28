@@ -1,0 +1,182 @@
+/**
+ * GNU LibreJS - A browser add-on to block nonfree nontrivial JavaScript.
+ * *
+ * Copyright (C) 2011, 2012, 2014 Loic J. Duros
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see  <http://www.gnu.org/licenses/>.
+ *
+ */
+@import url("/html/common.css");
+
+body {
+  max-width: 600px;
+  min-width: 500px;
+  -moz-user-select: text !important;
+}
+#header{
+display: block;
+width: 100%
+}
+
+h2 {
+    font-size: 1.4em;
+    font-weight:bold;
+    font-family:arial;
+    border-bottom:.2em solid #444;
+    padding-bottom:0;
+    margin:.8em 0 0 0;
+    line-height:140%;
+}
+code {
+    font-size: 1.2em;
+    margin:0;
+    padding:0;
+}
+ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+#info li {
+    padding: .3em;
+    border-bottom:.1em solid #CCC;
+    margin:0;
+    overflow: hidden;
+}
+
+#info ul ul {
+    margin: .4em;
+    list-style:disc;
+}
+#info ul ul li {
+    padding: .5em;
+    border-bottom:0;
+}
+#info {
+    clear:both;
+}
+
+#info .type-name {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#info .accepted-js .type-name {
+  color: #080;
+}
+
+#info .blocked-js .type-name {
+  color: #800;
+}
+
+#info .unknown-js .type-name {
+  color: #008;
+}
+
+#info .unknown-js .reason {
+  display: none;
+}
+
+.by-site button.forget, button.forget[name="*"] {
+  display: none;
+}
+
+.by-site button.forget[name="*"], #site .forget[name="*"] {
+  display: initial;
+}
+
+.status {
+  margin: .2em;
+}
+
+button.whitelist, .status.whitelisted {
+  color: #080;
+}
+button.blacklist, .status.blacklisted {
+  color: #800;
+}
+button.forget {
+  color: #008;
+}
+
+button:disabled {
+  color: #888 !important;
+}
+
+button.toggle-source {
+  color: #004;
+  width: 5em;
+  text-align:center;
+}
+
+pre.source {
+  display: none;
+  background: white;
+  border: 1px solid #444;
+  padding: .5em;
+  overflow: auto;
+  max-height: 20em;
+  white-space: pre-wrap;
+}
+
+button.hide { display: none  }
+.visible > button.show { display: none !important}
+.visible > pre.source { display: block }
+.visible > button.hide { display: initial }
+
+span.accepted, span.blocked {
+    color:#008e00;
+    font-size:145%;
+    font-variant:small-caps;
+    font-weight:bold;
+}
+
+span.blocked {
+    color:#8e0000;
+}
+
+.title-area {
+    width: 50%;
+    float:left !important;
+    text-align: center !important;
+}
+
+.title-area #librejs-web-link {
+    font-size: 1.2em;
+}
+
+#librejs-web-labels-pages>ul {
+    margin-top: .5em;
+    font-size: 1.2em;
+    list-style-type: disc;
+}
+
+
+.empty #site, .unknown-js.empty {
+  display: none;
+}
+
+.tab #must-reload, .tab #buttons,
+.empty #complain, .empty #report-tab, #autotest {
+  display: none;
+}
+
+#buttons button {
+  width: 100%;
+  text-align: center;
+}
+
+.mobile #report-tab {
+  display: none;
+}

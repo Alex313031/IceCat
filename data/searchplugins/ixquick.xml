@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+<ShortName>Ixquick</ShortName>
+<Description>Ixquick Search, adds Ixquick.com over HTTPS (POST) to your OpenSearch capable browser.</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABiklEQVQ4jZ2RsUtCURTGz7/gn+Do0ODc6OgmSJCQLUougohveThZBpecXMRsEIxMjAyhlEeZpAiBvKLQNETSDC3wwQtzcPgarrmoj/DA5Q73fL/vnO8SNEo4eYIymmi1gLQe9WIZ0du31QDy+w/IXYE1Vl8NIOS/QMIjyF3RXGMpwBBqgsQGyFtFtPSxHMAuW2BSF6wwALsbglW+IRRHoGAP5G+CfDIMoSbYZQvsogaWlsGS92CJElL5B5D0/Am9WAZ5q9wx0OHiQGc2AbmKIHsWZD0GmSMgUwhCOAdFHfMVlNEE1lid7yw2uLPYmGVATglkOwNZ4tBZj5AqvCzOgF33uKNP5re7Atq5AW1nQRtJGD3naPdV7RCZ1OUju4rc2c7FZIn/7xeM/um+9iwfeyomcwSpYkMb0O6rPKjp2TqQoLMlZsE5gxltAEvLvNkcAUvLM6jREQet70Jn2tMGGB1x6DcPIb8O5hqFcA605kHqqroY0O4N4QxmoKjjOfFfSeUahP3T5ROsUr/tPVtLvBGVHwAAAABJRU5ErkJggg==</Image>
+<Url type="text/html" method="POST" template="https://www.ixquick.com/do/search">
+<Param name="query" value="{searchTerms}"/>
+<!--
+Uncomment to enable preferences by URL parameter
+<Param name="prfh" value="lang_homepageEEEs/white/eng/N1Nfont_sizeEEEmediumN1Nrecent_results_filterEEE2N1Nlanguage_uiEEEenglishN1Ndisable_open_in_new_windowEEE1N1NsslEEE1N1Ncolor_schemeEEEwhiteN1Npower_refinementEEE1N1Ndisable_family_filterEEE1N1Nnum_of_resultsEEE50N1Npicture_privacyEEEonN1Ndisable_video_family_filterEEE1N1NsuggestionsEEE1N1N"/>
+-->
+</Url>
+<moz:SearchForm>https://www.ixquick.com/</moz:SearchForm>
+</OpenSearchDescription>

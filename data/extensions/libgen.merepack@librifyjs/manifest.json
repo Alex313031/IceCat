@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "LibrifyJS: libgen.me",
+  "version": "0.1.0",
+  "description": "Libre replacement for JavaScript blocked by GNU LibreJS on libgen.me",
+  "content_scripts": [
+    {
+      "matches": ["*://libgen.me/*"],
+      "js": ["common.js"]
+    },
+    {
+      "matches": ["*://libgen.me/"],
+      "js": ["home.js"]
+    },
+    {
+      "matches": ["*://libgen.me/search*"],
+      "js": ["search.js"]
+    },
+    {
+      "matches": ["*://libgen.me/item*"],
+      "js": ["item.js"]
+    },
+    {
+      "matches": ["*://libgen.me/links*"],
+      "js": ["links.js"]
+    }
+  ],
+  "permissions": [
+    "*://books.libgen.me/*",
+    "webRequest"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "libgen.merepack@librifyjs"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+export CROSS_COMPILE=1
+ac_add_options --enable-application=browser
+ac_add_options --target=i686-w64-mingw32
+ac_add_options --enable-default-toolkit=cairo-windows
+mk_add_options MOZ_OBJDIR=./obj-windows
+
+ac_add_options --disable-crashreporter 
+ac_add_options --disable-maintenance-service 
+
+# We can't build the sandbox code with mingw-w64: 
+#https://bugzilla.mozilla.org/show_bug.cgi?id=1042426 
+ac_add_options --disable-sandbox 

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+[ -d binaries ] || echo Binaries dir not found, exiting
+[ -d binaries ] || exit 1
+
+find binaries -type f | grep -e asc$ -e sig$ | xargs -r rm
+
+set -e
+
+if [ $# != 1 ]; then
+  echo E: pass the version as parameter
+  exit 1
+fi
+VERSION=$1
+
+newline="
+"
+mputs=""
+
+for file in $(ls binaries/|grep icecat); do
+
+ gpg -b --default-key D7E04784 binaries/$file
+ echo "version: 1.2
+filename: $file
+directory: gnuzilla/$VERSION
+" > binaries/$file.directive
+gpg --default-key D7E04784 --clearsign binaries/$file.directive
+rm binaries/$file.directive
+mputs="${mputs}put binaries/$file $file $newline"
+mputs="${mputs}put binaries/$file.sig $file.sig $newline"
+mputs="${mputs}put binaries/$file.directive.asc $file.directive.asc $newline"
+
+done
+
+
+for file in $(ls binaries/langpacks); do
+
+ gpg -b --default-key D7E04784 binaries/langpacks/$file
+ echo "version: 1.2
+filename: $file
+directory: gnuzilla/$VERSION/langpacks
+" > binaries/langpacks/$file.directive
+gpg --default-key D7E04784 --clearsign binaries/langpacks/$file.directive
+rm binaries/langpacks/$file.directive
+mputs="${mputs}put binaries/langpacks/$file $file $newline"
+mputs="${mputs}put binaries/langpacks/$file.sig $file.sig $newline"
+mputs="${mputs}put binaries/langpacks/$file.directive.asc $file.directive.asc $newline"
+
+done
+
+#cat << EOF
+ftp -v -p -n -i  << EOF 2>&1| tee log
+open ftp-upload.gnu.org
+user anonymous anonymous
+cd /incoming/ftp
+$mputs
+quit
+EOF
+

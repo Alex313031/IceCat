@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+<ShortName>Startpage</ShortName>
+<Description>Startpage Search, adds Startpage.com over HTTPS (POST) to your OpenSearch capable browser.</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<Image width="16" height="16">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC5klEQVQ4jV3O329TZRzH8fMfnGvmRW+88sf+AYUFJAwWJxAhyqI4gUzMWkfUZeg6cMGFlq7LqXS6snVLdWzg5mrpzNlshpNMmjFCNMYbjMR4Ia16YcSe50fX5+3FKaPxSV7J9/l8k0++VvKWNomiJrFe1zivV0lu0VtGb1cZXdek7mhjxW9qE1tTxIqK2NpDmlhREy9q4kWFUygz9nEBp/AHTj13iprRDW2syLfanFtRDF2vW1EMrWiGrmvO31Bcen+cxccCuLaNa9tkjg/Ud5r4TW2sDwra9C8rwq4ivNzAVZxdVuSbAsw+28545wD5Jr8o82KIs8uaoW+0sd5bUqbXVfR+Vecq+lzJh8lbpF4Nk28K0D9fps9VDE7d3Sq5cKHAQEEZ6928NKGsIpRVhBYUPVlFT1Yy/Uw7rm1zrSlA75Uyp7KSd7KSSHgO17a52DXM6bwyVnBBmq6rkq6rijfmFAOLiv5FxVuZMrPNO3Btm7H2IG/OSbrnJOf6/IKRY8OcuqaMdeJzaTpnJN3zko3fagBUFASzkpMTJWae9kvmH2/GeSlMbluAmeYddE+V6M5KYx2dkeaVjOTeXzX+VYb8j5tcXNW8/aUi8rWmJ13i8lN+SW5bgMGT4xyfKNE5LTlxRRirIyPM5Y0qAH05xbFpSe4H/w9w788aryVLTNdLEnuDHJmUdExKjmaEsQ6nhfnul00Avvi+ygNpAHggDaV//HnQVXQkS3z25HZc28bZG+RwWvDypDDWwTFhIkuaxrf00yZHJgQP8zM5xf6U4NDwfT59Yjsje4IcSHkcSgtjPZ8UtDqC0wuK9FqVzinB61OC0Kzk978NP5drtDmCfQnBvoTHwch92hKCtoTH/jEPa3fco9H4jUfX3C3XOPCJ8HeOx57/aU14WC3nK7REH0mtam7/WuPSquaFhMfOaIWWqEdL1GNnzLcrWhfzsFpHPLMrVmngmee2VOo8P4/7dsd8bR8J8x95G/ePEZdcmgAAAABJRU5ErkJggg==</Image>
+<Url type="text/html" method="POST" template="https://www.startpage.com/do/search">
+<Param name="query" value="{searchTerms}"/>
+<!--
+Uncomment to enable preferences by URL parameter
+<Param name="prfh" value="lang_homepageEEEs/white/eng/N1Nfont_sizeEEEmediumN1Nrecent_results_filterEEE2N1Nlanguage_uiEEEenglishN1Ndisable_open_in_new_windowEEE1N1NsslEEE1N1Ndisable_family_filterEEE1N1Nnum_of_resultsEEE50N1Npicture_privacyEEEonN1Ndisable_video_family_filterEEE1N1NsuggestionsEEE1N1N"/>
+-->
+</Url>
+<moz:SearchForm>https://www.startpage.com/</moz:SearchForm>
+</OpenSearchDescription>

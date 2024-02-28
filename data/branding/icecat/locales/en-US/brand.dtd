@@ -1,0 +1,10 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!ENTITY  brandShorterName      "IceCat">
+<!ENTITY  brandShortName        "IceCat">
+<!ENTITY  brandFullName         "GNU IceCat">
+<!ENTITY  brandProductName      "IceCat">
+<!ENTITY  vendorShortName       "GNU">
+<!ENTITY  trademarkInfo.part1   "The IceCat logo is Copyright 2008-2015 Free Software Foundation, released under the terms of the GNU Lesser General Public License, version 3 or any later version.">

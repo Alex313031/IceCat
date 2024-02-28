@@ -1,0 +1,145 @@
+{
+  "author": "Libor Pol\u010d\u00e1k, Giorgio Maone, Martin Timko, Pavel Pohner, Peter Hor\u0148\u00e1k, Mat\u00fa\u0161 \u0160vanc\u00e1r, Marek Salo\u0148, Martin Bedn\u00e1\u0159, Radek Hranick\u00fd, Martin Zmitko",
+  "background": {
+    "scripts": [
+      "nscl/lib/browser-polyfill.js",
+      "nscl/service/TabCache.js",
+      "nscl/service/NavCache.js",
+      "nscl/service/DocStartInjection.js",
+      "nscl/common/log.js",
+      "nscl/common/uuid.js",
+      "nscl/common/SyncMessage.js",
+      "nscl/common/tld.js",
+      "lib/sha256.js",
+      "helpers.js",
+      "session_hash.js",
+      "update.js",
+      "url.js",
+      "levels_browser.js",
+      "settings_tweaks.js",
+      "levels.js",
+      "fp_levels.js",
+      "fp_detect_background.js",
+      "background.js",
+      "level_cache.js",
+      "http_shield_firefox.js",
+      "http_shield_common.js"
+    ]
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "img/icon-16.png",
+      "32": "img/icon-32.png",
+      "48": "img/icon-48.png",
+      "64": "img/icon-64.png",
+      "96": "img/icon-96.png",
+      "128": "img/icon-128.png",
+      "256": "img/icon-256.png",
+      "512": "img/icon-512.png"
+    },
+    "default_title": "JShelter",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "match_about_blank": true,
+      "js": [
+        "nscl/common/uuid.js",
+        "nscl/common/SyncMessage.js",
+        "nscl/content/patchWindow.js",
+        "lib/sha256.js",
+        "alea.js",
+        "crc16.js",
+        "helpers.js",
+        "wrapping.js",
+        "wrappingL-CANVAS.js",
+        "wrappingL-SENSOR.js",
+        "wrappingS-AJAX.js",
+        "wrappingS-BATTERY-CR.js",
+        "wrappingS-BE.js",
+        "wrappingS-COOP-SCHEDULING.js",
+        "wrappingS-DM.js",
+        "wrappingS-DOM.js",
+        "wrappingS-ECMA-ARRAY.js",
+        "wrappingS-ECMA-DATE.js",
+        "wrappingS-ECMA-SHARED.js",
+        "wrappingS-EME.js",
+        "wrappingS-GEO.js",
+        "wrappingS-GP.js",
+        "wrappingS-H-C.js",
+        "wrappingS-HRT.js",
+        "wrappingS-HTML.js",
+        "wrappingS-HTML-LS.js",
+        "wrappingS-HTML5.js",
+        "wrappingS-IDLE.js",
+        "wrappingS-MCS.js",
+        "wrappingS-MEDIA-CAPABILITIES.js",
+        "wrappingS-NET.js",
+        "wrappingS-NFC.js",
+        "wrappingS-NP.js",
+        "wrappingS-PT2.js",
+        "wrappingS-SENSOR-ACCEL.js",
+        "wrappingS-SENSOR-GYRO.js",
+        "wrappingS-SENSOR.js",
+        "wrappingS-SENSOR-LIGHT.js",
+        "wrappingS-SENSOR-MAGNET.js",
+        "wrappingS-SENSOR-ORIENT.js",
+        "wrappingS-VR.js",
+        "wrappingS-WEBA.js",
+        "wrappingS-WEBGL.js",
+        "wrappingS-XR.js",
+        "code_builders.js",
+        "fp_code_builders.js",
+        "document_start.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "default_locale": "en",
+  "description": "__MSG_extensionDescription__",
+  "homepage_url": "https://JShelter.org",
+  "icons": {
+    "16": "img/icon-16.png",
+    "32": "img/icon-32.png",
+    "48": "img/icon-48.png",
+    "64": "img/icon-64.png",
+    "96": "img/icon-96.png",
+    "128": "img/icon-128.png",
+    "256": "img/icon-256.png",
+    "512": "img/icon-512.png"
+  },
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_security_policy": "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self' data:; style-src 'self';base-uri 'self';form-action 'self'",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "dns",
+    "<all_urls>",
+    "notifications"
+  ],
+  "optional_permissions": [
+    "browsingData"
+  ],
+  "short_name": "JShelter",
+  "version": "0.17",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "jsr@javascriptrestrictor",
+      "strict_min_version": "78.0a1"
+    },
+    "gecko_android": {}
+  }
+}

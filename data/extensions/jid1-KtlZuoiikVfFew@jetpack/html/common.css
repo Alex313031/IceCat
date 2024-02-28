@@ -1,0 +1,52 @@
+html {
+  padding:0px;
+  margin:0px;
+  color:#000 !important;
+  background:url('background-panel.png') !important;
+  font-family: sans-serif;
+}
+body {
+  padding: 0;
+  font-size: 12px;
+  margin: 1em;
+  color:#000;
+}
+
+.mobile body {
+  font-size: 6mm;
+  width: auto;
+  max-width: auto;
+}
+
+.mobile button {
+  font-size: 1.5em
+}
+
+div.libre {
+  position: relative;
+}
+
+.libre {
+    width:230px;
+    height:104px;
+    display:block;
+}
+h1.libre {
+    font-size:1.5em;
+    font-weight:normal;
+    padding:0;
+    font-weight:bold;
+    background:url('librejs-title.png') no-repeat top left;
+    text-indent:-1000px;
+    position: relative;
+}
+h1.libre span {
+  font-family: sans-serif;
+  position: absolute;
+  bottom: 32px;
+  padding: 0 16px;
+  left: 230px;
+  display: block;
+  text-indent: 0;
+  vertical-align: bottom;
+}

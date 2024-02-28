@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -e
+
+rm -rf repo
+mkdir repo
+cd icecat-*
+debian/rules debian/control
+dpkg-buildpackage -Zbzip2 -kD7E04784 -S -tc
+
+cd ..
+
+cp icecat_* repo
+
+cat << EOF  > release.conf
+APT::FTPArchive::Release::Origin "GNU";
+APT::FTPArchive::Release::Label "temporary icecat source repo";
+APT::FTPArchive::Release::Suite "stable";
+APT::FTPArchive::Release::Codename "debian";
+APT::FTPArchive::Release::Architectures "noarch";
+APT::FTPArchive::Release::Components "main";
+APT::FTPArchive::Release::Description "temporary icecat source repo";
+EOF
+
+cd repo
+
+dpkg-scansources . /dev/null > Sources
+apt-ftparchive -c=../release.conf release . > Release
+sed -i '/Release/d' Release
+gpg --default-key D7E04784 -abs -o Release.gpg Release 
+

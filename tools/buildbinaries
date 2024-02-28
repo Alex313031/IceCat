@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -e
+set -x
+
+if [ $# != 1 ]; then
+  echo E: pass the source dir as parameter
+  exit 1
+fi
+
+mkdir binaries
+
+for ARCH in i386 amd64; do
+
+cp -a $1 binaries/$ARCH
+mkdir binaries/$ARCH/temp
+
+cat << EOF > binaries/$ARCH/run.sh
+set -e
+set -x
+
+cd $PWD/binaries/$ARCH/temp
+apt-get -q -y --yes build-dep firefox
+../configure --with-l10n-base=\$PWD/../l10n --enable-official-branding --disable-crashreporter --disable-gnomevfs --enable-gio --disable-debug --enable-gstreamer=0.10 --with-distribution-id=org.gnu --disable-updater
+make -j7
+
+cd browser/installer
+make
+
+[ $ARCH = "i386" ] && exit 0
+cd ../locales
+for locale in \$(ls ../../../l10n/ -1); do
+make langpack-\$locale LOCALE_MERGEDIR=.
+done
+EOF
+
+
+env -i TERM=screen eatmydata sudo HOME=/home/ruben BUILDDIST=toutatis ARCH=$ARCH pbuilder execute $PWD/binaries/$ARCH/run.sh
+done
+
+mv binaries build
+mkdir -p binaries/langpacks
+cp build/i386/temp/dist/icecat-* binaries
+cp build/amd64/temp/dist/icecat-* binaries
+cp build/amd64/temp/dist/linux-x86_64/xpi/icecat-* binaries/langpacks
+cp icecat-*.tar.bz2 binaries
+rm binaries/*.json binaries/*.txt
+

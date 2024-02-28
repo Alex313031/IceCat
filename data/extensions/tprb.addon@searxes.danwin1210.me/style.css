@@ -1,0 +1,407 @@
+.minortxt {
+	color: #7e7e7e
+}
+
+.prmbtn {
+	background: #fff;
+	border: 0;
+	font-family: Verdana;
+	font-size: 12px
+}
+
+.iglass {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: 0;
+	overflow: hidden;
+	outline: none;
+	outline-style: none
+}
+
+.iglassCFG {
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: 0;
+	overflow: hidden;
+	outline: none;
+	outline-style: none;
+	margin: 6px 0
+}
+
+.iglassCFG:disabled {
+	font-weight: bold;
+	text-decoration: underline;
+	margin: 6px 0
+}
+
+body {
+	font: 13px Verdana;
+	overflow-x: hidden
+}
+
+*:focus {
+	outline: none;
+	outline-style: none
+}
+
+*::-moz-focus-inner {
+	border: 0
+}
+
+form {
+	min-width: 310px
+}
+
+div {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	cursor: default
+}
+
+hr {
+	color: #dcdcdc;
+	height: 0;
+	background: #dcdcdc
+}
+
+input[class='lgr'] {
+	-webkit-transform: scale(1.25);
+	transform: scale(1.25)
+}
+
+input[type=checkbox]+label:not(.ignr) {
+	color: #7e7e7e;
+	font-style: italic
+}
+
+input[type=checkbox]:checked+label:not(.ignr) {
+	color: #000000;
+	font-style: normal
+}
+
+input[type=radio]+label:not(.ignr) {
+	color: #7e7e7e;
+	font-style: italic
+}
+
+input[type=radio]:checked+label:not(.ignr) {
+	color: #000000;
+	font-style: normal
+}
+
+input[type=color] {
+	height: 16px
+}
+
+label {
+	-webkit-user-select: none;
+	-moz-user-select: none
+}
+
+table {
+	border-color: #fff;
+	border-style: solid;
+	width: 100%
+}
+
+td {
+	font: 13px Verdana;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 393px
+}
+
+textarea {
+	white-space: pre;
+	overflow-wrap: normal;
+	overflow-x: scroll
+}
+
+u {
+	border-bottom: 1px dotted #000;
+	text-decoration: none
+}
+
+#ysp {
+	height: 7px
+}
+
+#pfoot {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+	white-space: nowrap
+}
+
+#xmenus {
+	overflow-x: auto;
+	overflow-y: hidden;
+	margin: 0 auto;
+	white-space: nowrap
+}
+
+#cfg button {
+	display: inline-block;
+	height: 27px
+}
+
+#cfg input[type=file] {
+	display: inline-block;
+	height: 27px
+}
+
+#cfg table {
+	width: auto;
+	min-width: 0;
+	display: table;
+	border-color: #fff;
+	border-style: solid
+}
+
+#cfgdr {
+	font: 20px Verdana;
+	max-width: device-width;
+	line-height: 1.8
+}
+
+#cfgdr table {
+	border-spacing: 3px;
+	max-width: device-width;
+	width: 98%
+}
+
+#cfgdr td {
+	max-width: 40%;
+	font-size: 18px
+}
+
+#cfgdr button {
+	display: inline-block;
+	height: 34px;
+	font-size: 20px
+}
+
+#cfgdr textarea {
+	font-size: 16px;
+	max-width: device-width;
+	width: 98%
+}
+
+#cfgdr input[type=text] {
+	font-size: 18px
+}
+
+#cfgdr input[type=password] {
+	font-size: 18px
+}
+
+#cfgdr input[type=file] {
+	display: inline-block;
+	height: 32px
+}
+
+#cfgdr input[type=checkbox] {
+	-webkit-transform: scale(1.8);
+	transform: scale(1.8)
+}
+
+#cfgdr input[type=radio] {
+	-webkit-transform: scale(1.8);
+	transform: scale(1.8)
+}
+
+#black .minortxt {
+	color: #b4b4b4
+}
+
+#black .prmbtn {
+	background: #323234;
+	color: #fff
+}
+
+#black {
+	background-color: #323234;
+	color: #fff
+}
+
+#black hr {
+	color: #232323;
+	background: #232323
+}
+
+#black input[type=checkbox]+label:not(.ignr) {
+	color: #b4b4b4
+}
+
+#black input[type=checkbox]:checked+label:not(.ignr) {
+	color: #fff
+}
+
+#black input[type=radio]+label:not(.ignr) {
+	color: #b4b4b4
+}
+
+#black input[type=radio]:checked+label:not(.ignr) {
+	color: #fff
+}
+
+#black u {
+	border-bottom: 1px dotted #fff
+}
+
+#tlarger {
+	font-size: 20px;
+	background-color: #f9fafb
+}
+
+#tlarger .prmbtn {
+	font-size: 20px;
+	background: #f9fafb
+}
+
+#tlarger table {
+	border-spacing: 2px
+}
+
+#tlarger td {
+	font-size: 20px;
+	overflow: hidden;
+	white-space: nowrap
+}
+
+#tlarger input[class='lgr'] {
+	-webkit-transform: scale(1.7);
+	transform: scale(1.7)
+}
+
+#tlarger input[type=checkbox] {
+	width: 22px;
+	height: 20px
+}
+
+#tlarger input[type=radio] {
+	width: 22px;
+	height: 20px
+}
+
+#droid {
+	width: 100%;
+	font-size: 22px;
+	margin: 7px auto
+}
+
+#droid .prmbtn {
+	font-size: 22px
+}
+
+#droid table {
+	border-spacing: 5px
+}
+
+#droid td {
+	font-size: 22px;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: device-width
+}
+
+#droid input[type=checkbox] {
+	width: 34px;
+	height: 22px;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5)
+}
+
+#droid input[type=radio] {
+	width: 34px;
+	height: 20px;
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4)
+}
+
+#droid input[id=tglckAll] {
+	float: left;
+	margin: 5px 6px
+}
+
+#droid button[id=apply] {
+	margin: 0 auto
+}
+
+#broid .minortxt {
+	color: #b4b4b4
+}
+
+#broid {
+	width: 100%;
+	font-size: 22px;
+	margin: 7px auto;
+	background-color: #323234;
+	color: #fff
+}
+
+#broid .prmbtn {
+	font-size: 22px;
+	background: #323234;
+	color: #fff
+}
+
+#broid hr {
+	color: #232323;
+	background: #232323
+}
+
+#broid table {
+	border-spacing: 5px
+}
+
+#broid td {
+	font-size: 22px;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: device-width
+}
+
+#broid input[type=checkbox]+label:not(.ignr) {
+	color: #b4b4b4
+}
+
+#broid input[type=checkbox]:checked+label:not(.ignr) {
+	color: #fff
+}
+
+#broid input[type=radio]+label:not(.ignr) {
+	color: #b4b4b4
+}
+
+#broid input[type=radio]:checked+label:not(.ignr) {
+	color: #fff
+}
+
+#broid input[type=checkbox] {
+	width: 34px;
+	height: 22px;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5)
+}
+
+#broid input[type=radio] {
+	width: 34px;
+	height: 20px;
+	-webkit-transform: scale(1.4);
+	transform: scale(1.4)
+}
+
+#broid input[id=tglckAll] {
+	float: left;
+	margin: 5px 6px
+}
+
+#broid button[id=apply] {
+	margin: 0 auto
+}
+
+#broid u {
+	border-bottom: 1px dotted #fff
+}

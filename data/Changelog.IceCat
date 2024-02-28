@@ -1,0 +1,1007 @@
+2019-05-29 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v60.7.0ESR
+
+2019-05-10 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v60.6.3ESR
+	* Added extra build failsafes
+	* Do not include the debian package specifics
+	* Corrected description for "tracking protection" on onboarding page
+	* Updated extensions bundle:
+		Added ViewTube 2019.5.1 and disable-polymer-youtube 1.0, to provide YouTube support
+		"HTTPS Everywhere" updated to  2019.5.6.1
+		"LibreJS" updated to 7.20.1
+		"TorButton" updated to 0.1.7, with customizations for IceCat
+
+2019-02-13 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v60.5.0ESR
+	* Hardened privacy settings: spoof referers by default, isolate requests to first party origin, and disable sending the origin header to the HTTP server. 
+	* Extensions:
+		"LibreJS" updated to 7.19rc3, Now with Android support!
+		Added "ViewTube" + "disable-polymer-youtube" extensions, which allow to browse and play Youtube videos without JavaScript
+		"TorButton" updated to 0.1.
+		"HTTPS Everywhere" updated to 2019.1.31
+		Improved interface for "Reveal hidden HTML"
+		"Third Party Request Blocker" configured to allow requests to subdomains of the same site, known CDN servers (this is fine since we don't send referrers or origin headers), css files, and Youtube resource servers.
+		"Third Party Request Blocker" configured to prevent scripts from capturing mouse and keyboard events, as well as zero-width-character tracking mechanisms.
+
+2018-11-07 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v60.3.0ESR
+	* New about:home allows to tune the privacy settings and enable key extensions.
+	* First release including the re-implementation of LibreJS using WebExtensions.
+	* LibreJS companion extensions allow to use some sites without running their nonfree scripts, including: usps.com, pay.gov, goteo.org, Google drive, McDonalds wireless hotspots, rsf.org, sumofus.org
+	* Applied default settings and other changes that prevent IceCat from initiating connections that the user didn't explicitly request.
+	* Third-party requests blocked by default, with graphical interface for manageing exceptions.
+	* Simple TOR network integration (requires running TOR separately at the operating system level).
+	* Extensions:
+		"GNU LibreJS" 7.18.1
+		  LibreJS companion extensions:
+		    "LibreJS compatible Pay.gov" 1.2
+		    "LibreJS/USPS compatibility" 1.0
+		    "Goteo.org payments with free JS" 1.1
+		    "LibreJS Google Drive" 1.0
+		    "Rock and Roll McDonald's" 1.0
+		    "Sign RSF.org petitions with free Javascript" 1.1
+		    "LibreJS compatible SumOfUs.org" 1.1
+		"HTTPS Everywhere" 1.0.0
+		"Reveal hidden HTML" 1.6
+		"Tor™ Browser Button" 0.1.5
+		"Searxes' Third-party Request Blocker" 1.0.14
+
+2018-02-25 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v52.6.0ESR
+	* Extensions:
+	  - HTTPS Everywhere updated to 2018.1.11
+	  - "goteo.org payments with free JS" updated to 1.1
+	  - "LibreJS compatible Pay.gov" updated to 1.3
+	  - "Reveal hidden HTML" updated to 1.6
+	  - Enabled WebRTC, but prevent leaking the LAN ip.
+
+2017-09-01 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v52.3.0ESR
+	* Added extension collection https://addons.mozilla.org/en-US/firefox/collections/NateN1222/librejs-compatibility-add-ons/
+	* SpyBlock updated to 2.9.1
+	* HTTPS Everywhere updated to 5.2.21
+	* Removed Youtube player extension, as Youtube is no longer browsable without javascript
+	* Fixed OCSP check settings that were impeding captive portal usage
+
+2017-05-19 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v52.1.2ESR
+	* Added switch to disable spoofed referers on about:home
+	* Added link to about:config on about:home
+
+2017-05-04 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v52.1.0ESR
+	* Disabled punycode in urls
+	* Fixed android build errors
+
+2017-04-15 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v52.0.2ESR
+	* Disable EME
+	* Remove custom gst support tweaking, deprecated
+	* Disable addon sign verification globally
+	* Run dch ignoring wrong version number
+	* Updates to the hg downloads for locales
+	* Disable suggested_sites tweak from mobile customizations
+	* Removed deprecated values from configure.in and mobile/android/confvars.sh
+	* Hide plugindeprecation-notice, warnings on unsigned extensions, and extra links in about box
+	* Remove iOS link, keep android one
+	* Removed unnecesary step for inserting DDG searchplugin
+	* Disable healthreport
+	* Disable signed plugin warning
+	* Fixed build error in bookmarks file
+	* Remove unnecesary patches
+	* Fix Spyblock for a api change in v52
+	* Mark Spyblock extension as multiprocessor compatible
+	* Mark abouticecat extension as multiprocessor compatible
+	* Branding files updated for v52
+	* Branding installation updated for v52
+	* HTTPS Everywhere updated to 5.2.14
+
+2017-03-04 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v45.7.0ESR
+
+2016-12-01 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v45.5.1ESR
+
+2016-11-21 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v45.5.0ESR
+	* https-everywhere updated to 5.2.7
+	* Removed unnecesary upstreamed patches
+	* Branding changes for v45
+	* Updated aboutIcecat and aboutHome
+	* Fixed syntax issues in spyblock, removed unused javascript.txt subscription
+	* Enabled intl-api at build
+	* Applied settings to deal with privacy issues regarding EME, telemetry, flash, search suggestions, WebRTC, Geolocation, GMP, Pocket, and extension signatures
+	* Updated makeicecat script for v45, improves internationalization handling, search plugins and branding
+
+2016-05-10 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v38.8.0ESR
+	* LibreJS updated to 6.0.13
+	* HTTPS-Everywhere updated to 5.1.6
+	* Updated ssl cypher settings
+	* Do not spoof user-agent on android
+
+2016-04-07 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v38.7.1ESR
+
+2016-02-03 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v38.6.0ESR
+	* HTTPS-Everywhere updated to 5.1.3
+	* HTML5 Video Everywhere updated to 0.3.4
+
+2015-12-24 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v38.5.2ESR
+	* Disabled direct2d acceleration (fix for Windows crashes)
+
+2015-12-22 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v38.5.0ESR
+	* Fixed v38 related issues on multiarch builds (MacOS, Windows, Android)
+	* LibreJS updated to 6.0.10 final
+	* Made sure main (DuckDuckGO) search plugin doesn't require javascript
+
+2015-11-05 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v38.4.0ESR
+	* LibreJS updated to 6.0.10 prerelease
+
+2015-10-08 Ruben Rodriguez <ruben@gnu.org>
+	* Rebased to v38.x
+	* Updated to v38.3.0ESR
+	* LibreJS updated to 6.0.10.20150620
+	* HTTPS-Everywhere updated to 5.1.1
+	* HTML5 Video Everywhere updated to 0.3.3
+	* Added more privacy settings and crypto hardening
+	 - Disabled battery handling in dom
+	 - Disabled sensor handling in dom
+	 - Disable face detection and autofocus controls
+	 - Disabled DNS prefetch
+	 - Disabled ssl/tls protocols that are useless or too weak
+
+2015-08-22 Ruben Rodriguez <ruben@gnu.org>
+	* Applied patch for CVE-2015-4473 CVE-2015-4482 CVE-2015-4488 CVE-2015-4489 CVE-2015-4491 CVE-2015-4492 CVE-2015-4495 from Guix.
+
+2015-07-12 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v31.8.0ESR
+	* Applied fix for LogJam attack [https://weakdh.org/]
+	* HTML5 Video Everywhere updated to 0.2.38.1
+	* LibreJS updated to 6.0.9
+	* HTTPS-Everywhere updated to 5.0.5
+	* Spyblock updated to 2.6.9.0 from upstream changes
+	* Disabled hardware acceleration and WebGL
+
+2015-06-05 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v31.7.0ESR
+	* Fix build system for translation packages
+	* Remove tor-proxy from debian recommends field
+
+2015-04-03 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v31.6.0ESR
+	* Disable CNNIC root certificate
+
+2015-03-15 Ruben Rodriguez <ruben@gnu.org>
+	* Fixed profile path to .mozilla/icecat
+
+2015-03-08 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v31.5.0ESR
+	* Added build support for Windows, MacOS and Android
+	* Searchplugin instalation for mobile
+	* Make sure app.update and datareporting are disabled
+	* Updated html5-video-everywhere to 0.2.30
+	* Use prename instead of rename
+	* Added buildscripts and needed changes to crosscompile packages for MacOS, Windows and Android
+	* Adapt Spyblock for mobile
+	* Added patches to fix build bugs for Windows, MacOS and Android
+	* Enable LibreJs on mobile
+	* Updated aboutIcecat graphics
+	* Added android-images dir
+	* Fixed about:rights page content
+	* Added mobile branding files
+	* Added more fields to AddonsScraper.py
+	* Fake uname/arch no longer needed
+
+2015-01-27 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v31.4.0ESR
+	* Search form in about:icecat now searches in default search engine
+	* Disabled accessibility.blockautorefresh
+	* Replaced references to Open Source with Free Software where applicable
+	* Added html5-video-everywhere v0.1.1 extension: https://github.com/lejenome/html5-video-everywhere
+	* Updated LibreJS to 6.0.8
+	* Updated https-everywhere to 4.0.3
+
+2014-10-21 Ruben Rodriguez <ruben@gnu.org>
+	* Updated to v31.2.0ESR
+	* Generation script is now fully distro independent
+	* Updated https-everywhere to 4.0.2
+	* Support links moved to http://libreplanet.org/wiki/Group:IceCat
+	* Fixed poodle attack
+	* Move documentation links to libreplanet
+	* Changed useragent to match Torbrowser 4
+	* Disabled welcome url
+	* Disabled channel updates
+	* Request pages in english by default
+
+2014-09-11 Ruben Rodriguez <ruben@gnu.org>
+	* Moved to generation script based on Trisquel package helpers (http://trisquel.info/en/wiki/package-helpers)
+	* Updated to match v31ESR upstream release
+	* Improved fingerprinting countermeasures:
+		- Block third party cookies
+		- Spoof referrers
+		- Spoof useragent and related values for js (appname, oscpu...)
+		- Ask the user before running any plugin
+		- Do not list plugin info through js
+		- Disable prefetching
+		- Simplify font settings to use just the basic set
+		- Simplify requesting pages in english
+	* Extensions:
+		- LibreJS updated to version 6.0.1
+		- Added customized Adblockplus
+		- Removed requestpolicy
+		- Added about:icecat with list of features, links to documentation and checkbox to quick disabling
+		- Updated HTTPSeverywhere
+
+2013-10-16 Loic J. Duros <lduros@gnu.org>
+	* LibreJS has been updated to version 5.4
+	* Using a modified version of Gnome 24 theme released under MPL 2.0
+	* Added RequestPolicy to block cross-domain requests
+	* Created IceCat Tweak extension to make menu bar more compact
+	* Changed user agent from privacy addon to be more common (fingerprinting)
+	* Now using the FSF Directory for addon repository
+	
+2012-12-01 Loic J. Duros <lduros@gnu.org>
+	* The JavaScript in about:home page has been fixed to provide Duck Duck Go as a search engine when dom.storage.enabled is disabled (the default.)
+	* Promotional GNU material was added as part of the IceCat branding package
+	* Due to privacy concerns (leaking urls), Safe Browsing has been disabled by default.
+	* Duck Duck is now the default search box. (see more about Duck Duck Go and privacy: http://duckduckgo.com/about.html.)
+	* Firefox 17 and 17.0.1 list of changes (IceCat 17 corresponds to Firefox 17.0.1):
+	    http://www.mozilla.org/en-US/firefox/17.0/releasenotes/
+	    http://www.mozilla.org/en-US/firefox/17.0.1/releasenotes/
+
+2012-08-21 Loic J. Duros <lduros@gnu.org>
+	* Uses MOZ_APP_PROFILE to force the ~/.mozilla/icecat directory over the ~/.gnuzilla/icecat one, which from release to release has had unreliable support.
+	* Updates to Makefiles for compliance with ftp.gnu.org check.
+	* Firefox 14 list of changes: http://www.mozilla.org/en-US/firefox/14.0.1/releasenotes/buglist.html
+	
+2012-07-12 Loic J. Duros <lduros@gnu.org>
+	* Fixed extensions folder and package manifest.
+	* Put Firefox Sync back.
+	* Fixed couple strings (GNUzilla Foundation, ...)
+	
+2012-06-01  Loic J. Duros <lduros@gnu.org>
+	* extensions: Removed the MafiaaFire Redirector extension because the license
+	makes it nonfree:
+	https://addons.mozilla.org/en-US/firefox/addon/mafiaafire-redirector/license/0.9d
+
+	* make.icecat: Rewrote part of make.icecat so that it is
+	compatible with latest versions of Firefox.
+
+	* .mozconfig: appdir is now default .mozilla rather than
+	.gnuzilla, since the appdir option is not well supported by
+	Firefox developers and may not be supported at all in the future.
+
+	* extensions: Added GNU LibreJS version 4.7 to IceCat.
+
+	* aboutDialog.xul: Update content.
+
+	* browser/confvars.sh: Disabled Firefox Sync.
+	
+2012-02-07  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Do not apply the locales-strings.patch patch.  Use
+	sed instead.
+	* locales-strings.patch: Remove file.
+
+2011-11-26  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Revert change of 2011-11-21.  Do not bundle libjs, for now.
+
+2011-11-21  Giuseppe Scrivano  <giuseppe@gnu.org>
+
+	* make.icecat: Add librejs extension.
+
+2011-09-30  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/Makefile.in: Upgrade from upstream.
+
+2011-09-28  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/Makefile.in (libs): Remove document.png.
+	* browser/branding/unofficial/Makefile.in (LINUX_BRANDING_FILES):
+	Likewise.
+
+2011-09-07  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Document how include the CAcert root certificate.
+	* security/nss/lib/ckfw/builtins/certdata.c: Upgrade from upstream.
+
+2011-08-31  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* security/nss/lib/ckfw/builtins/certdata.c: Upgrade from upstream.
+
+2011-08-18  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Use @gnuzilla.gnu.org for locales.
+	* browser/locales/Makefile.in: Remove file from the repository.
+
+2011-08-16  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/Makefile.in: Upgrade from Firefox 6.0.
+
+	* make.icecat: Upgrade MafiaaFire download link.
+
+	* browser/app/Makefile.in: Remove file.
+	* browser/app/application.ini: Upgrade from upstream.
+	* browser/app/profile/firefox.js: Likewise.
+
+2011-08-15  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Fix build under GNU/Linux 3.0.
+	* canvas_notify.patch: Adapt for Firefox 6.0.
+
+2011-06-25  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/content/about-background.png: New file.
+	* browser/branding/unofficial/content/jar.mn: Include about-background.png.
+
+2011-06-21  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/locales/en-US/aboutDialog.dtd: Update from upstream.
+	* browser/app/Makefile.in: Likewise.
+
+2011-06-17  Hayawardh Vijayakumar <hayawardh@gmail.com> (tiny patch)
+
+	* browser/branding/unofficial/run-icecat.sh: Fix insecure LD_LIBRARY_PATH.
+
+2011-04-18  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Include the Mafiaa addon by default.
+
+2011-04-03  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/installer/package-manifest.in: Use run-icecat.sh not
+	run-mozilla.sh
+	* browser/branding/unofficial/Makefile.in: Fix build under a VPATH.
+
+2011-04-01  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/locales/en-US/aboutDialog.dtd: Remove
+	links to "End User Right" and "Privacy Policy".
+	* browser/base/content/aboutHome.xhtml: New file.
+
+	* browser/branding/unofficial/locales/jar.mn: Remove file.
+
+2011-03-31  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/content/credits.xhtml: Remove file.
+
+2011-03-30  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* toolkit/mozapps/plugins/content/pluginInstallerWizard.js: New file.
+
+2011-03-24  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Use the privacy extension from the 4.0 branch, not trunk.
+
+	* make.icecat: Don't attempt to copy files which are not used anymore.
+	* browser/installer/package-manifest.in: Include extensions.
+
+2011-03-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/mozilla.in: Update.
+	* browser/app/profile/firefox.js: Likewise.
+	* browser/branding/unofficial/content/jar.mn: Likewise.
+	* browser/branding/unofficial/pref/firefox-branding.js: Likewise.
+	* browser/branding/unofficial/locales/en-US/credits.dtd: Remove file.
+	* browser/branding/unofficial/content/credits.xhtml: Likewise.
+	* browser/branding/unofficial/license.r: Likewise.
+	* browser/branding/unofficial/brand.properties: Likewise.
+	* browser/branding/unofficial/content/icon48.png: Remove.
+	* browser/branding/unofficial/content/icon64.png: Convert to...
+	* browser/branding/unofficial/content/default.png: ...this.
+
+2011-03-22  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+ 	* browser/branding/unofficial/locales/en-US/aboutDialog.dtd: Updated.
+ 	* browser/branding/unofficial/locales/en-US/brand.dtd: Updated.
+	* browser/branding/unofficial/Makefile.in: Updated.
+	* browser/branding/unofficial/brand.dtd: Remove file.
+	* browser/branding/unofficial/content/aboutCredits.png: Likewise.
+	* browser/branding/unofficial/content/aboutFooter.png: Likewise.
+	* browser/branding/unofficial/content/about.png: Likewise.
+	* browser/branding/unofficial/content/default.png: Likewise.
+	* browser/branding/unofficial/content/about-logo.png: New file.
+	* browser/branding/unofficial/content/about.png: Likewise.
+	* browser/branding/unofficial/content/about-wordmark.png: Likewise.
+	* browser/branding/unofficial/content/icon48.png: Likewise.
+	* browser/branding/unofficial/content/icon64.png: Likewise.
+
+	* security/nss/lib/ckfw/builtins/certdata.c: Regenerated.
+
+	* browser/installer/package-manifest.in: Update.
+	* configure.in: Remove file.
+
+	* make.icecat: Do not apply the `nullplugin.patch' patch.
+	* nullplugin.patch: Remove file.
+
+2011-03-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Adjust directory names for extensions.
+
+2011-02-22  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Install "HTTPS everywhere" by default.
+
+2011-01-27  Christophe Jarry <christophe.jarry@ouvaton.org>
+
+	* .mozconfig: Remove duplicate line.
+
+2011-01-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* configure.in: New file.  Apply "Work around FTBFS on mips by
+	disabling TLS support" patch by Mike Hommey <mh@glandium.org>.
+	Reported by: Christophe Jarry <christophe.jarry@ouvaton.org>.
+
+2011-01-19  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* README.ICECAT: Fix typo.
+	Reported by: Christophe Jarry <christophe.jarry@ouvaton.org>.
+
+2011-01-15  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* README.ICECAT: Remove reference to IceWeasel and BurningDog.
+	Reported by: Christophe Jarry <christophe.jarry@ouvaton.org>.
+
+2010-12-22  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* .mozconfig: Enable freetype2.
+	Suggested by: Bruno Miguel <brunoalexandremiguel@gmail.com>
+
+2010-12-21  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/configure.sh: Leave only one final
+	newline, not two.
+	* browser/locales/en-US/searchplugins/duck-duck-go.xml: Add final
+	newline.
+	* browser/branding/unofficial/locales/en-US/brand.dtd: Remove trailing
+	whitespaces.
+	* browser/branding/unofficial/run-icecat.sh: Likewise.
+	* browser/installer/package-manifest.in: Likewise.
+	Reported by: Christophe Jarry <christophe.jarry@ouvaton.org>
+
+2010-12-20  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/profile/firefox.js: Remove duplicate configuration values.
+	* browser/branding/unofficial/pref/firefox-branding.js: Likewise.
+	Remove definition for `pfs.datasource.url'.
+	Reported by: Christophe Jarry <christophe.jarry@ouvaton.org>.
+
+2010-12-15  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/installer/unix/packages-static: Copy anything under bin/extensions.
+	* browser/installer/package-manifest.in: Likewise.
+	* browser/installer/packages-static: Likewise.
+	* browser/branding/unofficial/Makefile.in (export): Copy any directory
+	under extensions/, not files.
+
+2010-12-13  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/installer/package-manifest: New file.
+
+2010-12-11  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Automatically fetch the privacy extension.
+	* extensions: Move directory to...
+	* browser/branding/unofficial/extensions: ..here.
+
+2010-12-10  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/Makefile.in (export): Fix condition for
+	copying extensions/*.xpi.
+
+	* make.icecat: Fail immediately if patches can't be applied.
+
+2010-12-09  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/locales/en-US/brand.dtd: Remove "www."
+	from releaseBaseURL.
+	Reported by: Christophe Jarry <christophe.jarry@ouvaton.org>.
+
+2010-12-07  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* canvas_notify.patch: New file.
+	* make.icecat: Apply canvas_notify.patch.
+
+2010-11-25  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/Makefile.in (export): Copy
+	extensions/*.xpi to the dist directory.
+	* browser/installer/unix/packages-static: Include bin/extensions/*.xpi
+	in the package.
+
+2010-11-17  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/locales/en-US/searchplugins/duck-duck-go.xml: New file.
+
+2010-09-03  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* .mozconfig: Add --disable-ipc.
+
+2010-08-18  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Fix Makefile.in's permissions.  Fix CVE-2009-4029.
+
+2010-05-26  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/branding/unofficial/pref/firefox-branding.js: Change
+	the `app.support.baseURL' value to keep %VERSION%, %OS% and %LOCALE%
+	information.
+
+2010-05-18  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/locales/en-US/chrome/browser-region/region.properties: Remove
+	handlers for webcal and irc.
+
+	Remove "GMail" and "Yahoo Mail!" from the mailto protocol handlers.
+
+	* browser/locales/en-US/chrome/browser-region/region.properties: New
+	file.
+
+2010-05-12  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Rewrite the usage string to have `icecat', not
+	`firefox'.
+
+2010-05-06  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Remove a file that is not present upstream anymore.
+
+2010-04-03  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/config/version.txt: Remove.
+
+2010-03-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* make.icecat: Don't attempt to remove not existing files.
+	* browser/config/version.txt: Bump version to 3.6.2.
+
+2010-02-24  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* remove.nonfree: Renamed to...
+	* make.icecat: this.
+	* README.ICECAT: Use the new file name.
+
+2010-02-18  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/profile/firefox.js: The fixed user agent string is
+	moved into the privacy extension.
+
+2010-02-18  Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* nullplugin.patch: Update to 3.6.
+
+2010-02-13  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* toolkit/content/plugins.html: Re-added.
+
+2010-02-12  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* toolkit/content: Remove.
+
+2010-02-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/profile/firefox.js: Use a reasonable fixed User-Agent
+	string.  Only few web sites will be affected by this change.
+
+2010-02-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/profile/firefox.js: Revert last change.  Specify the
+	original User-Agent.  Some websites use this information.
+
+2010-01-31  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/app/profile/firefox.js: Do not specify additional
+	information in the User-Agent header.
+
+2010-01-30  Harald van Dĳk  <harald@gigawatt.nl>
+
+	* browser/app/profile/firefox.js: Synchronize with Firefox 3.6.
+
+2010-01-21  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* remove.nonfree,
+	* .mozconfig: Update to the 3.6 version.
+	* browser/config/version.txt: Bump version to 3.6.
+
+2010-01-06  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/config/version.txt: Bump version to 3.5.7.
+
+2009-12-16  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* browser/config/version.txt: Bump version to 3.5.6.
+
+2009-11-19  Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* nullplugin.patch: Redirect to a dynamic page to fetch plugins
+	information.
+
+2009-11-19  Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* nullplugin.patch: New file.
+	* remove.nonfree: Apply nullplugin.patch.
+
+2009-11-19  Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* browser/app/profile/firefox.js: Disable the default plugin.
+
+2009-11-18  Karl Goetz <karl@kgoetz.id.au>
+
+	* browser/app/profile/firefox.js: Include (like Firefox/version).
+	The idea here is that websites which sniff the UA string to decide
+	what to display will see Firefox and play nice. Ref. Debian
+	bug #399633 and "Iceweasel and Firefox compatibility" thread.
+
+2009-11-08  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Bump version number to 3.5.5.
+
+2009-10-28  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Bump version number to 3.5.4.
+
+2009-10-19  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/app/profile/firefox.js: Use the additional search engines
+	list present on the GNUzilla web site.
+	The themes and addons point to the right section in the page.
+
+2009-09-24  Giuseppe Scrivano  <gscrivano@gnu.org>
+	Reported by: Karl Goetz <karl@kgoetz.id.au>
+	* ./browser/app/profile/firefox.js: Change some default configuration values.
+
+2009-09-10  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Bump version number to 3.5.3.
+
+2009-09-01  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./.mozconfig: Remove deprecated extensions.
+
+2009-08-05  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Bump version number to 3.5.2.
+
+2009-08-01  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/content/aboutCredits.png: Use a transparent
+	background.
+
+2009-07-30  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/base/content/overrides/app-license.html: New file.
+	* ./browser/branding/unofficial/locales/en-US/aboutDialog.dtd: Specify
+	better what we changed.
+
+2009-07-26  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./toolkit/mozapps/plugins/content/pluginInstallerWizard.xul: New file.
+
+2009-07-19  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree: Do not remove useful files.
+
+2009-07-18  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Bump version number to 3.5.1.
+	* ./.mozconfig: Don't disable jsd.
+
+2009-07-11  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Changed versioning scheme.
+
+2009-07-10  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree: Do not remove useful files.
+
+2009-07-04  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree: Generate logo's.
+	* ./browser/app/application.ini: New file.
+	* ./browser/app/Makefile.in: Updated for 3.5-g1.
+	* ./browser/app/mozilla.in: Moved.
+	* ./browser/branding/unofficial/content/credits.xhtml: Reformatted.
+	* ./browser/branding/unofficial/content/jar.mn: Updated.
+	* ./browser/branding/unofficial/locales/en-US/aboutDialog.dtd: Updated.
+	* ./build/unix/mozilla.in: New file.
+	* ./security/nss/lib/ckfw/builtins/certdata.c: Regenerated.
+
+2009-07-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./.mozconfig: Changed default configuration.
+	* ./remove.nonfree: Don't remove ./js/src/liveconnect/jsj_nodl.c.
+
+2009-06-30  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/app/mozilla.in: Removed.
+	* ./browser/app/profile/firefox.js,
+	* ./browser/branding/unofficial/run-icecat.sh,
+	* ./browser/branding/unofficial/content/credits.xhtml,
+	* ./browser/config/version.txt,
+	* ./browser/installer/packages-static,
+	* ./browser/installer/unix/packages-static,
+	* ./browser/locales/Makefile.in,
+	* ./toolkit/content/plugins.html: Updated to 3.5-g1.
+	* ./security/nss/lib/ckfw/builtins/certdata.c: Updated root certificates.
+
+2009-06-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./toolkit/content/plugins.html: New file.
+
+2009-06-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./.mozconfig: Allow multiple profiles.
+
+2009-06-12  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.11-g1.
+
+2009-05-12  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/content/credits.xhtml: Update credits.
+
+2009-04-29  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.10-g1.
+
+2009-04-27  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./.mozconfig: Increased compiler optimization level.
+
+2009-04-22  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.9-g1.
+
+2009-04-03  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.8-g1.
+
+2009-03-14  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree: Don't remove browser/branding/unofficial/.
+
+2009-03-14  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.7-g1.
+
+2009-03-07  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/app/profile/firefox.js: Changed addons.html URL.
+
+2009-03-01  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/pref/firefox-branding.js: Addons location properties moved to firefox.js.
+	* ./browser/app/profile/firefox.js: Added.
+
+2009-02-28  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/pref/firefox-branding.js: Fixed problem with addons location properties.
+
+2009-02-28  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/content/credit.xhtml: Removed.
+	* ./browser/branding/unofficial/content/credit.xhtml: Added.
+	* ./remove.nonfree: File renamed.
+
+2009-02-28  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/content/credit.xhtml: Removed Firefox logos notice.
+
+2009-02-28  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree,
+	* ./browser/branding/unofficial/locales/en-US/credits.dtd,
+	* ./browser/branding/unofficial/content/credits.xhtml: Added new files.
+
+2009-02-26  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/pref/firefox-branding.js: Changed addons location.
+
+2009-02-07  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./locales-strings.patch: New file.
+	* ./remove.nonfree: Patch locales.
+
+2009-02-04  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.6-g1.
+	* ./configure.in: Removed.
+
+2008-12-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree,
+	* ./configure.in: Don't apply X geometry patch.
+	* ./x_geometry_patch.diff: Removed.
+
+2008-12-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt,
+	* ./configure.in: Updated version to 3.0.5-g1.
+
+2008-12-01 Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* ./browser/app/Makefile.in: File restored.
+
+2008-12-01 Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* ./config/autoconf.mk.in,
+	* ./browser/app/Makefile.in: File removed.
+	* ./x_geometry_patch.diff: Changed boolean test.
+	* ./configure.in: Changed libxcb test.
+	* ./.mozconfig: Changed default configuration.
+
+2008-11-30 Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* configure.in,
+	* x_geometry_patch.diff,
+	* .mozconfig: Changed default configuration and XRM detection.
+
+2008-11-23  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* .mozconfig,
+	* ./configure.in: Changed default configuration.
+
+2008-11-14  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./configure.in: Added missing AC_SUBST statement.
+
+2008-11-14  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree: Don't remove the browser/branding/unofficial directory.
+
+2008-11-14  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.4-g1.
+	* ./configure.in: Updated version to 3.0.4-g1.
+
+2008-10-25  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/branding.nsi: Changed CompanyName.
+	* ./browser/branding/unofficial/pref/firefox-branding.js: Changed some configurations.
+
+2008-10-25  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/branding.nsi: Changed URL.
+	* ./Changelog: Renamed to ChangeLog.
+
+2008-10-03  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./.mozconfig: Generate optimized binaries.
+
+2008-10-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/brand.dtd,
+	* ./browser/branding/unofficial/brand.properties: Added new files.
+
+2008-10-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./config/autoconf.mk.in: Fixed problem introduced by last commit.
+
+2008-10-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./configure.in: Use XRM_LIBS.
+	* ./config/autoconf.mk.in: Fixed problem with locales.
+
+2008-09-29  Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/content/jar.mn: Updated references.
+
+2008-09-29  Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* ./browser/locales/Makefile.in: Updated to the Firefox 3.0.3 version.
+
+2008-09-29  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/Makefile.in,
+	* ./browser/installer/packages-static,
+	* ./browser/installer/unix/packages-static: Install default.png.
+	* ./browser/branding/unofficial/icon48.png,
+	* ./browser/branding/unofficial/icon64.png: Removed.
+	* ./browser/branding/unofficial/default.png: Added.
+	* ./browser/config/version.txt: Updated version to 3.0.3-g1.
+
+2008-09-24  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* security/nss/lib/ckfw/builtins/certdata.c: New file.
+
+2008-09-24  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Updated version to 3.0.2-g1.
+
+2008-09-19  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/branding/unofficial/run-icecat.sh: Silent error when
+	`~/.gnuzilla/' doesn't exist.
+
+2008-08-06  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/locales/Makefile.in: New file, it renames locales .xpi.
+
+2008-08-05  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree: Fixed shell comment.
+
+2008-08-03  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/app/Makefile.in,
+	* ./configure.in: Use XRM_LIBS.
+	* ./config/autoconf.mk.in: Added new file.
+
+2008-08-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/app/Makefile.in,
+	* ./configure.in,
+	* ./x_geometry_patch.diff: Look for libX11.a and XCB in XEXT_LIBS.
+
+2008-08-02  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./configure.in: Look for the XCB library.
+
+2008-08-01  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./configure.in: Look for the libX11.a file.
+
+2008-07-31  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./configure.in,
+	* x_geometry_patch.diff: Try to link against the XrmInitialize symbol.
+
+2008-07-29  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* x_geometry_patch.diff: Don't change size and position for dialogs.
+
+2008-07-27  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./configure.in: Look for the libX11.a file in /usr/lib too.
+
+2008-07-27  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./remove.nonfree,
+	* ./configure.in: Look for the libX11.a file.
+
+2008-07-27  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* ./browser/config/version.txt: Added new file.
+
+2008-07-26  Giuseppe Scrivano  <gscrivano@gnu.org>
+
+	* remove.nonfree,
+	* x_geometry_patch.diff: Added X geometry patch.
+
+2008-07-23 Giuseppe Scrivano <gscrivano@gnu.org>
+
+	* ./.mozconfig,
+	* ./remove.nonfree,
+	* ./README.ICECAT,
+	* ./browser/app/Makefile.in,
+	* ./browser/app/mozilla.in,
+	* ./browser/app/application.ini,
+	* ./browser/branding/unofficial/Makefile.in,
+	* ./browser/branding/unofficial/pref/firefox-branding.js,
+	* ./browser/branding/unofficial/configure.sh,
+	* ./browser/branding/unofficial/license.r,
+	* ./browser/branding/unofficial/locales/jar.mn,
+	* ./browser/branding/unofficial/locales/en-US/aboutDialog.dtd,
+	* ./browser/branding/unofficial/locales/en-US/brand.properties,
+	* ./browser/branding/unofficial/locales/en-US/brand.dtd,
+	* ./browser/branding/unofficial/locales/Makefile.in,
+	* ./browser/branding/unofficial/locales/browserconfig.properties,
+	* ./browser/branding/unofficial/branding.nsi,
+	* ./browser/branding/unofficial/run-icecat.sh,
+	* ./browser/branding/unofficial/content/icon48.png,
+	* ./browser/branding/unofficial/content/aboutFooter.png,
+	* ./browser/branding/unofficial/content/about.png,
+	* ./browser/branding/unofficial/content/jar.mn,
+	* ./browser/branding/unofficial/content/icon64.png,
+	* ./browser/branding/unofficial/content/aboutCredits.png,
+	* ./browser/branding/unofficial/content/Makefile.in,
+	* ./browser/branding/unofficial/dsstore,
+	* ./browser/installer/unix/packages-static,
+	* ./browser/installer/packages-static: Initial import.

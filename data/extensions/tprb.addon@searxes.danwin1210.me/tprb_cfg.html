@@ -1,0 +1,426 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>TPRB:[Config]</title>
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body id="cfg" style="display:none">
+      <form autocomplete="off">
+         <div id="open_init" style="display:none">&#8680;&nbsp;<button type="button" id="opendroid">&nbsp;&#9881;&nbsp;</button>&nbsp;&#8678;</div>
+         <div id="reset_page" style="display:none">
+            <br>
+            <div align="center">
+               <table border="0" cellspacing="2" cellpadding="2">
+                  <tr>
+                     <td><label><input type="checkbox" id="aon_dnt_rst_wlst" checked> <span data-what="aon_resettxt_1"></span></label></td>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <div align="center"><button type="button" id="aonbtn_bset0">&#9099;&nbsp;<span data-what="cancelnow"></span></button>&nbsp;&nbsp;<button type="button" id="aonbtn_bset1">&#10148;&nbsp;<span data-what="aon_resetme"></span></button></div>
+         </div>
+         <div id="mainmenu" style="display:none">
+            <div id="xmenus"><button type="button" id="chgsubmenu_1" class="iglassCFG" disabled>[<span data-what="sub_txt_1"></span>]</button><button type="button" id="chgsubmenu_8" class="iglassCFG">[<span data-what="sub_txt_8"></span>]</button><button type="button" id="chgsubmenu_2" class="iglassCFG">[<span data-what="sub_txt_2"></span>]</button><button type="button" id="chgsubmenu_7" class="iglassCFG">[<span data-what="sub_txt_7"></span>]</button><button type="button" id="chgsubmenu_6" class="iglassCFG">[<span data-what="sub_txt_6"></span>]</button><button type="button" id="chgsubmenu_3" class="iglassCFG">[<span data-what="sub_txt_3"></span>]</button><button type="button" id="chgsubmenu_9" class="iglassCFG">[<span data-what="sub_txt_9"></span>]</button><button type="button" id="chgsubmenu_4" class="iglassCFG">[<span data-what="sub_txt_4"></span>]</button><button type="button" id="chgsubmenu_5" class="iglassCFG">[<span data-what="sub_txt_5"></span>]</button></div>
+            <hr>
+            <br>
+            <div id="sub_menu1">
+               <label><input type="checkbox" id="myset_rqblsettemp"> <span data-what="advanced_settemp"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblfmtdsturl"> <span data-what="advanced_fmtsrcurl"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_dsturl.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <label><input type="checkbox" id="myset_rqblfmtdstrxp"> <span data-what="advanced_fmtsrcrxp"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_dstrxp.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <br>
+               <span data-what="adv_alwaysokay"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblcsslover"> <span data-what="advanced_css"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblaok_ytb"> <span data-what="advanced_aok_ytb"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblsubdomok"> <span data-what="advanced_subdom"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblallok_wuz"> <span data-what="advanced_aok_wuz"></span></label> <small>(<i><u>assets</u>.example.com</i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblaok_cdnf"> <span data-what="advanced_aok_cdnf"></span></label> <small>(<i>ajax.googleapis.com</i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblaok_cdnd"> <span data-what="advanced_aok_cdnd"></span></label> <small>(<i>custom.<u>cloudfront.net</u></i>)</small><br>
+               <br>
+               <span data-what="yourwhitelist_format"></span><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_wlst.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <small><span data-what="yourwhitelist_format2"></span></small><br>
+               <small><span data-what="yourwhitelist_format3"></span></small><br>
+               <span id="showdsturlfmt" style="display:none"><small><span data-what="yourwhitelist_format4"></span></small><br></span>
+               <span id="showdstrxpfmt" style="display:none"><small><span data-what="yourwhitelist_format5"></span></small><br></span>
+               <textarea cols="50" rows="20" id="myset_rqblwhitelist" wrap="off"></textarea>
+               <br><br>
+               <button type="button" id="udsd_menu_1">&#8597;&nbsp;<span data-what="udsd_impexpupldwn"></span></button>
+               <span id="udsd_menu_1_real" style="display:none">
+                  <span data-what="whiteimpexp"></span>:<br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_impt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="file" id="myset_importtxt_wl"><br><small><span data-what="whiteimpexp_impttip"></span></small><br><label><input type="checkbox" id="importMerge_wl"> <span data-what="whiteimpexp_impt2"></span></label></td>
+                     </tr>
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_expt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><button type="button" id="myset_exporttxt_wl">&#9986;&nbsp;<span data-what="whiteimpexp_expt"></span></button></td>
+                     </tr>
+                  </table>
+                  <br>
+                  <span data-what="listsync"></span>:<span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_udf.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td align="center" valign="middle">API URL</td>
+                        <td valign="middle"><input type="text" id="listsync_apiurl" size="40" value=""></td>
+                     </tr>
+                     <tr>
+                        <td align="center" valign="middle"><span data-what="listsync_transid"></span></td>
+                        <td valign="middle"><input type="text" id="listsync_transid" size="22" maxlength="19" value=""></td>
+                     </tr>
+                     <tr>
+                        <td align="center" valign="middle"><span data-what="listsync_sysmsg"></span></td>
+                        <td valign="middle"><input type="text" id="listsync_sysmsg" size="40" class="iglass" style="pointer-events:none" readonly></td>
+                     </tr>
+                  </table>
+                  <br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td><button type="button" id="listsync_btnup">&#8593;&nbsp;<span data-what="listsync_upload"></span></button></td>
+                        <td><button type="button" id="listsync_btnds">&#8634;&nbsp;<span data-what="listsync_destroy"></span></button></td>
+                     </tr>
+                     <tr>
+                        <td><button type="button" id="listsync_btndlo">&#8595;&nbsp;<span data-what="listsync_downloado"></span></button></td>
+                        <td><button type="button" id="listsync_btndlm">&#8595;&nbsp;<span data-what="listsync_downloadm"></span></button></td>
+                     </tr>
+                  </table>
+                  <small><span data-what="whiteimpexp_impttip"></span></small>
+               </span>
+            </div>
+            <div id="sub_menu8" style="display:none">
+               <label><input type="checkbox" id="myset_rqbl_bldstrxp"> <span data-what="advanced_fmtsrcrxp2"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_dstrxp2.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <br>
+               <span data-what="adv_igwblthem"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblnopuny"> <span data-what="adv_igwblthem_puny"></span></label><br>
+               <br>
+               <span data-what="yourblacklist_format"></span><br>
+               <small><span data-what="yourblacklist_format2"></span></small><br>
+               <span id="showbdrxpfmt" style="display:none"><small><span data-what="yourblacklist_format3"></span></small><br></span>
+               <textarea cols="50" rows="20" id="myset_rqblblacklist" wrap="off"></textarea>
+               <br><br>
+               <button type="button" id="udsd_menu_8">&#8597;&nbsp;<span data-what="udsd_impexp"></span></button>
+               <span id="udsd_menu_8_real" style="display:none">
+                  <span data-what="whiteimpexp3"></span>:<br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_impt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="file" id="myset_importtxt_bl"><br><small><span data-what="whiteimpexp_impttip"></span></small><br><label><input type="checkbox" id="importMerge_bl"> <span data-what="whiteimpexp_impt2"></span></label></td>
+                     </tr>
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_expt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><button type="button" id="myset_exporttxt_bl">&#9986;&nbsp;<span data-what="whiteimpexp_expt"></span></button></td>
+                     </tr>
+                  </table>
+               </span>
+            </div>
+            <div id="sub_menu2" style="display:none">
+               <label><input type="checkbox" id="myset_rqblcleardark"> <span data-what="advanced_separatecd"></span></label><br>
+               <br>
+               <span data-what="adv_igwblthem"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblyestls"> <span data-what="adv_igwblthem_unenc"></span></label> <small>(<i>http:// ws://</i>)</small><br>
+               <label><input type="checkbox" id="myset_rqbljustgp"> <span data-what="adv_igwblthem_abnrml"></span></label> <small>(<i><span data-what="adv_igwblthem_abnrml2"></span></i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblbyesok"> <span data-what="adv_igwblthem_wsoks"></span></label> <small>(<i><span data-what="adv_igwblthem_wsoks2"></span></i>)</small><br>
+               <br>
+               <span data-what="adv_igwblrest"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblblockfnt"> <span data-what="adv_igwblrest_fnt"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblblockobj"> <span data-what="adv_igwblrest_obj"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblblockmid"> <span data-what="adv_igwblrest_med"></span></label> <small>(<i><span data-what="adv_igwblrest_med2"></span></i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblblockimg"> <span data-what="adv_igwblrest_img"></span></label><br>
+               <br>
+               <span data-what="adv_igwblmime"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblmimeav"> <span data-what="adv_igwblmime_av"></span></label> <small>(<i>video/* audio/*</i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblmimepdf"> <span data-what="adv_igwblmime_pdf"></span></label> <small>(<i>application/pdf</i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblmimexls"> <span data-what="adv_igwblmime_off"></span></label> <small>(<i><span data-what="adv_igwblmime_off2"></span></i>)</small><br>
+               <br>
+               <span data-what="adv_blkhidedst"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblusemybl"> <span data-what="adv_blkhidedst_knwn"></span></label> <small>(<i><span data-what="adv_blkhidedst_knwn2"></span></i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblbyesocial"> <span data-what="adv_blkhidedst_socl"></span></label> <small>(<i><span data-what="adv_blkhidedst_socl2"></span></i>)</small><br>
+            </div>
+            <div id="sub_menu7" style="display:none">
+               <span data-what="adv_contentfilter"></span>:<br>
+               <label><input type="checkbox" id="myset_rqbldieframe"> <span data-what="advanced_noiframe"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblcftagcanvas"> <span data-what="advanced_nocanvas"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_csmadqs"> <span data-what="advanced_csmyaqs"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_cssqsl.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <span id="showusrcssqslr" style="display:none"><br><small><span data-what="advanced_csmyaqs2"></span></small><br><textarea cols="50" rows="12" id="myset_rqblcqsrlist" wrap="off"></textarea><br></span>
+               <br>
+               <span data-what="adv_dearevilpage"></span>:<br>
+               <label><input type="checkbox" id="myset_rqbl_ah_rclk"> <span data-what="acf_ah_rclk"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ah_keys"> <span data-what="acf_ah_keys"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ah_scrl"> <span data-what="acf_ah_scrl"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ah_mmove"> <span data-what="acf_ah_mmove"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ah_touch"> <span data-what="acf_ah_touch"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ah_0wchr"> <span data-what="acf_ah_zerowc"></span></label><span data-pconly> <small>(&#8505; <a href="https://medium.com/@umpox/be-careful-what-you-copy-invisibly-inserting-usernames-into-text-with-zero-width-characters-18b4e6f17b66" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <br>
+               <span data-what="adv_dnrcfonpage"></span><br><small><span data-what="fqdnordomain"></span></small><br>
+               <textarea cols="50" rows="12" id="myset_rqblcftrwhite" wrap="off"></textarea>
+               <br><br>
+               <button type="button" id="udsd_menu_7">&#8597;&nbsp;<span data-what="udsd_impexp"></span></button>
+               <span id="udsd_menu_7_real" style="display:none">
+                  <span data-what="whiteimpexp4"></span>:<br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_impt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="file" id="myset_importtxt_cf"><br><small><span data-what="whiteimpexp_impttip"></span></small><br><label><input type="checkbox" id="importMerge_cf"> <span data-what="whiteimpexp_impt2"></span></label></td>
+                     </tr>
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_expt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><button type="button" id="myset_exporttxt_cf">&#9986;&nbsp;<span data-what="whiteimpexp_expt"></span></button></td>
+                     </tr>
+                  </table>
+               </span>
+            </div>
+            <div id="sub_menu6" style="display:none">
+               <label><input type="checkbox" id="myset_rqblrdr_clnsrch"> <span data-what="redr_cleansrch"></span></label> <small>(<i>blog?<u>utm_source=feed</u>&... &rarr; blog</i>)</small><br>
+               <label><input type="checkbox" id="myset_rqblrdr_justhtps"> <span data-what="redr_justhtps"></span></label> <small>(<i><span data-what="redr_justhtps2"></span></i>)</small><br>
+               <br>
+               <span data-what="misc_autoredir_what"></span>:<br>
+               <label><input type="radio" id="myset_rqblaured_0" name="surs"> <span data-what="misc_autoredir_lv0"></span></label><br>
+               <label><input type="radio" id="myset_rqblaured_1" name="surs"> <span data-what="misc_autoredir_lv1"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_redirwatch.html" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <label><input type="radio" id="myset_rqblaured_2" name="surs"> <span data-what="misc_autoredir_lv2"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblardr_usealrt"> <span data-what="misc_autoredir_ualert"></span></label><br>
+               <br>
+               <span data-what="misc_autoredir_ignr"></span>:<br>
+               <label><input type="radio" id="myset_rqblrdrign_0" name="ardir"> <span data-what="misc_autoredir_lv0"></span></label><br>
+               <label><input type="radio" id="myset_rqblrdrign_3" name="ardir"> <span data-what="advanced_rdirno_3"></span></label> <small>(<i><u>mozilla.org</u>/about.html &rarr; <u>discord.mozilla.org</u>/login</i>)</small><br>
+               <label><input type="radio" id="myset_rqblrdrign_4" name="ardir"> <span data-what="advanced_rdirno_4"></span></label> <small>(<i>www.<u>nsakey</u>.com/ &rarr; www.<u>nsakey</u>.co.uk/</i>)</small><br>
+               <br>
+               <span data-what="redr_nomitm"></span>:<span data-pconly> <small>(&#8505; <a href="https://trac.torproject.org/projects/tor/ticket/24351" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <label><input type="radio" name="fmit" id="myset_rqblrdr_mitm_0"> <span data-what="redr_nomitm_lv0"></span></label><br>
+               <label><input type="radio" name="fmit" id="myset_rqblrdr_mitm_1"> <span data-what="redr_nomitm_lv1"></span></label><br>
+               <label><input type="radio" name="fmit" id="myset_rqblrdr_mitm_2"> <span data-what="redr_nomitm_lv2"></span> <small>*</small></label><br>
+               <label><input type="checkbox" id="myset_rqblrdr_mitm_t2oi"><small>*</small> <span data-what="redr_nomitm_lv2if"></span></label> <small>(<i>HTTP 403 Forbidden</i>)</small><br>
+               <label><input type="checkbox" id="myset_rqbl_mitmxmark"><small>*</small> <span data-what="redr_mitmmark"></span></label><br>
+               <br>
+               <span data-what="redr_nomitm_also"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblrdr_mitm_inc"> Incapsula MITM</label><br>
+               <label><input type="checkbox" id="myset_rqblrdr_mitm_ggl"> Google Project Shield MITM</label><br>
+               <label><input type="checkbox" id="myset_rqblrdr_mitm_scu"> Sucuri MITM</label><br>
+               <br>
+               <span data-what="redr_nomitm_giveup"></span><br>
+               <small><span data-what="fqdnordomain"></span></small><br>
+               <textarea cols="50" rows="12" id="myset_rqblmitmoklist" wrap="off"></textarea>
+               <br><br>
+               <button type="button" id="udsd_menu_6">&#8597;&nbsp;<span data-what="udsd_impexp"></span></button>
+               <span id="udsd_menu_6_real" style="display:none">
+                  <span data-what="whiteimpexp5b"></span>:<br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_impt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="file" id="myset_importtxt_rr"><br><small><span data-what="whiteimpexp_impttip"></span></small><br><label><input type="checkbox" id="importMerge_rr"> <span data-what="whiteimpexp_impt2"></span></label></td>
+                     </tr>
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_expt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><button type="button" id="myset_exporttxt_rr">&#9986;&nbsp;<span data-what="whiteimpexp_expt"></span></button></td>
+                     </tr>
+                  </table>
+                  <br>
+                  <span data-what="whiteimpexp5"></span>:<br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_impt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="file" id="myset_importtxt_mm"><br><small><span data-what="whiteimpexp_impttip"></span></small><br><label><input type="checkbox" id="importMerge_mm"> <span data-what="whiteimpexp_impt2"></span></label></td>
+                     </tr>
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_expt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><button type="button" id="myset_exporttxt_mm">&#9986;&nbsp;<span data-what="whiteimpexp_expt"></span></button></td>
+                     </tr>
+                  </table>
+               </span>
+            </div>
+            <div id="sub_menu3" style="display:none">
+               <label><input type="checkbox" id="myset_rqblnoscript"> <span data-what="advanced_letsblkjs"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblxssblock"> <span data-what="advanced_jsxss"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblnoworker"> <span data-what="advanced_noworker"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblluvinline"> <span data-what="advanced_jsinline"></span></label><br>
+               <br>
+               <span data-what="adv_noscrtag"></span>:<br>
+               <label><input type="radio" id="myset_rqblnstag_0" name="slnoscr"> <span data-what="misc_autoredir_lv0"></span></label><br>
+               <label><input type="radio" id="myset_rqblnstag_1" name="slnoscr"> <span data-what="advanced_noscra_1"></span></label><br>
+               <label><input type="radio" id="myset_rqblnstag_2" name="slnoscr"> <span data-what="advanced_noscra_2"></span></label><br>
+               <br>
+               <span data-what="adv_alwaysokay"></span>:<br>
+               <label><input type="checkbox" id="myset_rqbljsak_wuz"> <span data-what="advanced_aok_wuz"></span></label> <small>(<i><u>js</u>.example.com</i>)</small> <small>*</small><br>
+               <label><input type="checkbox" id="myset_rqbljsak_cdnf"> <span data-what="advanced_aok_cdnf"></span></label> <small>(<i>ajax.googleapis.com</i>)</small> <small>*</small><br>
+               <label><input type="checkbox" id="myset_rqbljsak_cdnd"> <span data-what="advanced_aok_cdnd"></span></label> <small>(<i>custom.<u>cloudfront.net</u></i>)</small> <small>*</small><br>
+               <label><input type="checkbox" id="myset_rqbljsakreqhs"><small>*</small> <span data-what="advanced_aok_htps"></span></label><br>
+               <br>
+               <span data-what="advanced_letsblkjs2"></span><br><small><span data-what="advanced_letsblkjs3"></span></small><br>
+               <textarea cols="50" rows="12" id="myset_rqbljsoklist" wrap="off"></textarea>
+               <br><br>
+               <button type="button" id="udsd_menu_2">&#8597;&nbsp;<span data-what="udsd_impexp"></span></button>
+               <span id="udsd_menu_2_real" style="display:none">
+                  <span data-what="whiteimpexp2"></span>:<br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_impt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="file" id="myset_importtxt_js"><br><small><span data-what="whiteimpexp_impttip"></span></small><br><label><input type="checkbox" id="importMerge_js"> <span data-what="whiteimpexp_impt2"></span></label></td>
+                     </tr>
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_expt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><button type="button" id="myset_exporttxt_js">&#9986;&nbsp;<span data-what="whiteimpexp_expt"></span></button></td>
+                     </tr>
+                  </table>
+               </span>
+            </div>
+            <div id="sub_menu9" style="display:none">
+               <label><input type="checkbox" id="myset_rqblsmartref"> <span data-what="advanced_smartref"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblmyrecset"> <span data-what="advanced_myrecset"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_setprivacy.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <label><input type="checkbox" id="myset_rqblnonotifypop"> <span data-what="advanced_nonotifypop"></span></label><br>
+               <br>
+               <span data-what="dropheader"></span>:<br>
+               <label><input type="checkbox" id="myset_rqbl_ignh_altsvc"> <span data-what="adv_dropheader0"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ignh_etag"> <span data-what="adv_dropheader3"></span></label><span data-pconly> <small>(&#8505; <a href="https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <label><input type="checkbox" id="myset_rqbl_ignh_expct"> <span data-what="adv_dropheader1"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ignh_xdnspf"> <span data-what="adv_dropheader2"></span></label><br>
+               <br>
+               <span data-what="nodownloadok"></span>:<br>
+               <label><input type="radio" id="myset_rqblnodlact_0" name="nodownok"> <span data-what="misc_autoredir_lv0"></span></label><br>
+               <label><input type="radio" id="myset_rqblnodlact_1" name="nodownok"> <span data-what="advanced_nodownk_1"></span></label><br>
+               <label><input type="radio" id="myset_rqblnodlact_2" name="nodownok"> <span data-what="advanced_nodownk_2"></span></label><br>
+               <br>
+               <span data-what="antiannoyance"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblnogifani"> <span data-what="advanced_nogifani"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbl_ntb_mute"> <span data-what="advanced_notabsound"></span></label><br>
+               <br>
+               <span data-what="autocleaner"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblclnw_ckie"> <span data-what="autocln_ct_cookies"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblclnw_stor"> <span data-what="autocln_ct_storage"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblclnw_cace"> <span data-what="autocln_ct_cache"></span></label><br>
+               <span data-pconly><label><input type="checkbox" id="myset_rqblclnw_fdta"> <span data-what="autocln_ct_fdata"></span></label><br></span>
+               <span data-pconly><label><input type="checkbox" id="myset_rqblclnw_hist"> <span data-what="autocln_ct_history"></span></label><br></span>
+               <label><input type="checkbox" id="myset_rqblclnw_dwnl"> <span data-what="autocln_ct_downs"></span></label><br>
+               <span data-pconly><label><input type="checkbox" id="myset_rqblclnw_plug"> <span data-what="autocln_ct_plugin"></span></label><br></span>
+               <br><br>
+               &#119909; = <input type="text" id="myset_autocln_vx" size="5" maxlength="3" value="" placeholder="5"><small>[tabs] (<i>5 ~ 999</i>)</small><br>
+               &#119910; = <input type="text" id="myset_autocln_vy" size="5" maxlength="4" value="" placeholder="3"><small>[min.] (<i>3 ~ 1440</i>)</small>
+            </div>
+            <div id="sub_menu4" style="display:none">
+               <span data-pconly>
+               <label><input type="checkbox" id="myset_rqbl_kbrd"> <span data-what="advanced_usekblnk"></span></label><br>
+               <span id="kbd_act" style="display:none"><br>
+               <span data-what="advanced_usekblnk2"></span>: <input type="text" id="myset_rqbl_kbrd_k" size="22" value="">&nbsp;<small>[&#8634;<u><span data-what="resetme" id="rstKBS"></span></u>]</small> <small>(&#8505; <a href="%NFOBASE%tprb_kbsfmt.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small><br>
+               &nbsp;<label><input type="radio" id="myset_rqbl_kbda_0" name="kbdactn"> <span data-what="advanced_usekblt0"></span></label><br>
+               &nbsp;<label><input type="radio" id="myset_rqbl_kbda_1" name="kbdactn"> <span data-what="advanced_usekblt1"></span></label><br>
+               &nbsp;<label><input type="radio" id="myset_rqbl_kbda_2" name="kbdactn"> <span data-what="advanced_usekblt2"></span></label><br>
+               </span><br></span>
+               <span data-what="adv_popmenu"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblpopnarld"> <span data-what="adv_popmenu_narld"></span></label><br>
+               <span data-pconly><label><input type="checkbox" id="myset_rqblproicon"> <span data-what="adv_popmenu_uico"></span> <small>*</small></label><br></span>
+               <label><input type="checkbox" id="myset_rqblpmdotf"> <span data-what="adv_popmenu_dotf"></span></label><br>
+               <span data-pconly>
+               <label><input type="checkbox" id="myset_rqblpmoffon"> <span data-what="adv_popmenu_btoffon"></span></label><br>
+               <label><input type="checkbox" id="myset_rqblpmshowip"> <span data-what="adv_popmenu_showip"></span> <small>**</small></label><br>
+               <label><input type="checkbox" id="myset_rqblpmshowcc"> <span data-what="adv_popmenu_showcc"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_usegeoip.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <label><input type="checkbox" id="myset_rqblpmshowsubs"> <span data-what="adv_popmenu_showsubs"></span></label><br>
+               </span>
+               <label><input type="checkbox" id="myset_rqblpmjshps"> <span data-what="advanced_btjshttps"></span></label><span data-pconly> <small>(&#8505; <a href="%NFOBASE%tprb_jshttps.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small></span><br>
+               <span data-pconly>
+               <br>
+               <small>*</small> <span data-what="adv_popuis_ics"></span>:<br>
+               <label><input type="checkbox" id="myset_rqbluis_0"> <span data-what="adv_popuis_i0"></span></label>: <input type="text" id="myset_rqbluis_curl" size="30" value=""> <small>(&#8505; <a href="%NFOBASE%tprb_uicurl.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small><br>
+               <label><input type="checkbox" id="myset_rqbluis_1"> <span data-what="adv_popuis_i1"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbluis_2"> <span data-what="adv_popuis_i2"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbluis_3"> <span data-what="adv_popuis_i3"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbluis_4"> <span data-what="adv_popuis_i4"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbluis_5"> <span data-what="adv_popuis_i5"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbluis_6"> <span data-what="adv_popuis_i6"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbluis_7"> <span data-what="adv_popuis_i7"></span></label><br>
+               <br>
+               <small>**</small> <span data-what="adv_popuis_pxydns"></span>:<br>
+               <label><input type="radio" id="myset_rqblpxydns_0" name="pxdnsop"> <span data-what="misc_autoredir_lv0"></span></label><br>
+               <label><input type="radio" id="myset_rqblpxydns_1" name="pxdnsop"> <span data-what="adv_popuis_pxydns1"></span></label>: <input type="text" id="myset_rqbluis_curl3" size="30" value=""> <small>(&#8505; <a href="%NFOBASE%tprb_dnsapi.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small><br>
+               <br>
+               <span data-what="adv_poprclk"></span>:<br>
+               <label><input type="radio" id="myset_rqblpoprck_0" name="pprclk"> <span data-what="misc_autoredir_lv0"></span></label><br>
+               <label><input type="radio" id="myset_rqblpoprck_1" name="pprclk"> <span data-what="adv_poprclk_1"></span></label><br>
+               <label><input type="radio" id="myset_rqblpoprck_2" name="pprclk"> <span data-what="adv_poprclk_2"></span></label><br>
+               <br>
+               <span data-what="adv_poplblclk"></span>:<br>
+               <label><input type="radio" id="myset_rqblpoplbl_0" name="pprlbla"> <span data-what="misc_autoredir_lv0"></span></label><br>
+               <label><input type="radio" id="myset_rqblpoplbl_1" name="pprlbla"> <span data-what="adv_poplbla_1"></span></label><br>
+               <label><input type="radio" id="myset_rqblpoplbl_2" name="pprlbla"> <span data-what="adv_popuis_i0"></span></label>: <input type="text" id="myset_rqbluis_curl2" size="30" value=""> <small>(&#8505; <a href="%NFOBASE%tprb_uicurl.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small><br></span>
+               <br>
+               <span data-what="adv_prsrtr"></span>:<br>
+               <label><input type="radio" id="myset_rqblprsrt_0" name="poprsrtr"> <span data-what="adv_poprsrt_ck"></span></label><br>
+               <label><input type="radio" id="myset_rqblprsrt_1" name="poprsrtr"> <span data-what="adv_poprsrt_ckrr"></span></label><br>
+               <label><input type="radio" id="myset_rqblprsrt_2" name="poprsrtr"> <span data-what="adv_poprsrt_azck"></span></label><br>
+               <label><input type="radio" id="myset_rqblprsrt_3" name="poprsrtr"> <span data-what="adv_poprsrt_azckrr"></span></label><br>
+               <br>
+               <span data-what="adv_popstyle"></span>:<br>
+               <label><input type="radio" id="myset_rqblppsty_0" name="popstly"> <span data-what="adv_popsty_0"></span></label><br>
+               <span data-pconly>
+               <label><input type="radio" id="myset_rqblppsty_1" name="popstly"> <span data-what="adv_popsty_0a"></span></label><br>
+               <label><input type="radio" id="myset_rqblppsty_2" name="popstly"> Candy</label> <small>by Ionuț Colceriu</small><br>
+               </span>
+               <br>
+               <span data-what="adv_popcolor"></span>:<br>
+               <label><input type="radio" id="myset_rqblpclr_0" name="popclrs"> <span data-what="adv_ticotp_def"></span></label><br>
+               <label><input type="radio" id="myset_rqblpclr_1" name="popclrs"> <span data-what="adv_popclr_blk"></span></label>
+               <span data-pconly><br>
+               <label><input type="radio" id="myset_rqblpclr_5" name="popclrs"> <span data-what="adv_popclr_big"></span></label><br>
+               <br>
+               <span data-what="adv_ticotp"></span>:<br>
+               <label><input type="radio" id="myset_rqblico_0" name="icontype"> <span data-what="adv_ticotp_def"></span></label><br>
+               <label><input type="radio" id="myset_rqblico_1" name="icontype"> Type J</label><br>
+               <label><input type="radio" id="myset_rqblico_2" name="icontype"> Onebit I</label> <small>by Khodjaev Stanislav</small><br>
+               <br>
+               <span data-what="adv_tbbgclr"></span>:<br>
+               <label><input type="radio" id="myset_rqblbgc_0" name="badgeclr"> <span data-what="adv_ticotp_def"></span></label><br>
+               <label><input type="radio" id="myset_rqblbgc_1" name="badgeclr"> <span data-what="adv_tbbgclr_pik"></span></label>: <input type="color" id="myset_rqblbgc_picker" value="#ffffff">
+               </span>
+            </div>
+            <div id="sub_menu5" style="display:none">
+               <span data-what="adv_noprotect"></span>:<br>
+               <label><input type="checkbox" id="myset_rqblmixokay"> <span data-what="advanced_mixok"></span></label><br>
+               <label><input type="checkbox" id="myset_rqbll2iokay"> <span data-what="advanced_l2iok"></span></label><br>
+               <br>
+               <span data-pconly>
+                  <span data-what="adv_geoip"></span>: <small>(&#8505; <a href="%NFOBASE%tprb_usegeoip.txt" target="_blank"><span data-what="moreinfo"></span></a>)</small><br>
+                  <table border="0" cellspacing="2" cellpadding="2">
+                     <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td align="center" valign="middle"><span data-what="whiteimpexp_impt"></span></td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="file" id="myset_import_geoip"><br><input type="text" id="geoip_info4" size="8" class="iglass" style="pointer-events:none" readonly></td>
+                     </tr>
+                  </table>
+                  <button type="button" id="btnClrGeoD">&#9763;&nbsp;<span data-what="geo_clear"></span></button><br>
+                  <br>
+               </span>
+               <br>
+               <button type="button" id="btnGoResetUI">&#9763;&nbsp;<span data-what="aon_reset"></span></button>
+            </div>
+            <br>
+            <hr>
+            <span id="aboutfxandr" style="display:none">&#8265;&nbsp;<u><span data-what="info_fxandroid"></span></u><br><br></span>
+            <button type="submit" id="savenow" class="iglass">&nbsp;&nbsp;[<u>&#10148;&nbsp;<span data-what="saveme"></span></u>]&nbsp;&nbsp;</button>&nbsp;&nbsp;<span id="cfgsaved" style="display:none"><b><span data-what="saveme2"></span></b></span>
+            <span id="aboutfxandr2" style="display:none">&nbsp;&nbsp;<button type="button" id="droidcls" class="iglass">&nbsp;[<u>&#215;&nbsp;<span data-what="closeme"></span></u>]&nbsp;</button></span>
+         </div>
+      </form>
+      <script src="tprb_cfg.js"></script>
+   </body>
+</html>

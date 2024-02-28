@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+SPDX-FileCopyrightText: 2021 2019 Libor Polčák
+SPDX-FileCopyrightText: 2021 2019 Martin Timko
+SPDX-FileCopyrightText: 2022 2021 Marek Saloň
+
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" type="image/x-icon" href="/img/logo.svg">
+  <link rel="stylesheet" type="text/css" href="common.css">
+  <link rel="stylesheet" type="text/css" href="options.css">
+	<script src="/nscl/lib/browser-polyfill.js" type="text/javascript"></script>
+  <script src="levels_browser.js" type="text/javascript"></script>
+  <script src="settings_tweaks.js" type="text/javascript" defer></script>
+  <script src="levels.js" type="text/javascript"></script>
+  <script src="options_init.js" type="text/javascript" defer></script>
+  <script src="helpers.js" type="text/javascript" defer></script>
+  <script src="tweaks_gui.js" type="text/javascript" defer></script>
+  <script src="options.js" type="text/javascript" defer></script>
+	<script src="i18n_translate_dom.js" type="text/javascript" defer></script>
+	<script src="options_nbs.js" type="text/javascript" defer></script> <!-- This file appends text to
+	the div translated by i18n_translate_dom.js, keep this script after i18n_translate_dom.js -->
+	<title data-localize="JShelterOptions">JShelter options</title>
+</head>
+<body>
+			<section class="logo">
+				<img src="img/icon-128.png" alt="JShelter logo" id="logoimg">
+			</section>
+			<nav class="menu">
+				<ul>
+					<li><a href="options.html" data-localize="MainSettings">Main settings</a></li>
+					<li><a href="options_domains.html" data-localize="JSSShieldDetails">JS Shield details</a></li>
+					<li><a href="options_advanced.html" data-localize="AdvancedOptions">Advanced options</a></li>
+					<li>
+						<p data-localize="ExternalLinks">External links</p>
+						<ul>
+							<li><a href="https://JShelter.org/threatmodel/" data-localize="ThreatModel">Threat model</a></li>
+							<li><a href="https://JShelter.org/faq/" data-localize="FAQ">FAQ</a></li>
+							<li><a href="https://polcak.github.io/jsrestrictor/test/test.html" data-localize="TestPage">Test page</a></li>
+							<li><a href="https://JShelter.org/permissions/" data-localize="Permissions">Permissions</a></li>
+							<li><a href="https://pagure.io/JShelter/webextension/" data-localize="SourceCode">Source code</a></li>
+							<li><a href="https://pagure.io/JShelter/webextension/issues" data-localize="IssueTracker">Issue tracker</a></li>
+							<li><a href="https://JShelter.org/credits/" data-localize="Credits">Credits</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+
+
+	<section class="content">
+
+    <h1>JShelter</h1>
+
+<section id="configuration_area">
+	<div id="levels-config">
+		<h2 id="set-default-level" data-localize="JavascriptShield">JavaScript Shield</h2>
+		<div class="jss_description" data-localize="JavascriptShieldDescription" htmltranslation></div>
+
+		<h3 data-localize="JavascriptShieldLevelsMainLevelOptionHeading">Create custom levels and set the default level</h3>
+		<p class="alert" data-localize="newLevelsNotRecommended" htmltranslation>We do not recommend creating own levels and
+			changing configuration if you are concerned about browser fingerprinting. Please read
+			<a href="https://jshelter.org/faq/">FAQ</a> and our <a
+				 href="https://arxiv.org/abs/2204.01392">paper</a>. By diverging from the configuration of
+			 other users, you make your re-identification easier.</p>
+		<div id="jss-shield-settings">
+			<div class="jss-shield-settings-item">
+				<ul id="levels-list">
+				</ul>
+				<fieldset>
+					<button id="new_level" class="jsr-button" data-localize="AddCustomLevel">Add custom level</button>
+				</fieldset>
+			</div>
+			<div id="current-level-tweaks-detail" class="jss-shield-settings-item">
+				<h3 id="current-level-tweaks-heading"></h3>
+				<div id="current-level-tweaks" class="tweakgrid">
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<div id="proxy-protection-config">
+		<div class="protection-title">
+			<h2 class="shield-onoff-label" for="nbs-switch" data-localize="NetworkBoundaryShield">Network Boundary Shield</h2>
+			<label class="switch">
+				<input id="nbs-switch" type="checkbox" checked>
+				<span class="slider"></span>
+			</label>
+		</div>
+		<div class="nbs_description" data-localize="NBSDescription" htmltranslation></div>
+		<fieldset>
+			<div class="tweakgrid" id="nbs-settings">
+
+			</div>
+		</fieldset>
+		<fieldset>
+			<button id="nbs-whitelist-show" class="jsr-button" data-localize="ManageWhitelist">Manage whitelist ⤵</button>
+			<button id="nbs-whitelist-hide" class="jsr-button hidden" data-localize="HideWhitelist">Hide whitelist ⤵</button>
+		</fieldset>
+		<fieldset id="nbs-whitelist-container" class="hidden">
+			<div>
+				<input id="nbs-whitelist-input" type="text" name="nbs-whitelist-hostname" placeholder="example.com">
+				<button id="nbs-whitelist-add-button" class="jsr-button" data-localize="ButtonDisableForDomain" htmltranslation>Disable for the domain</button>
+			</div>
+			<select id="nbs-whitelist-select" name="sometext" size="10" multiple>
+
+			</select>
+			<div>
+				<button id="nbs-whitelist-remove-button" class="jsr-button" data-localize="ButtonEnableForSelectedDomains" htmltranslation>Enable for the selected domains</button>
+				<p data-localize="ManageWhitelistDescription" htmltranslation>
+					Please note, that these domain names are checked with domain hierarchy, so whitelisting
+					<strong>example.com</strong> does also whitelist <strong>news.example.com</strong>.
+				</p>
+			</div>
+		</fieldset>
+	</div>
+
+	<div id="fingerprinting-protection-config">
+		<div class="protection-title">
+			<h2 class="shield-onoff-label" for="fpd-switch" data-localize="FingerprintDetector">Fingerprint Detector</h2>
+			<label class="switch">
+				<input id="fpd-switch" type="checkbox" checked>
+				<span class="slider"></span>
+			</label>
+		</div>
+		<div class="fpd_description" data-localize="FPDDescription" htmltranslation></div>
+		<fieldset>
+			<div class="tweakgrid" id="fpd-settings">
+
+			</div>
+		</fieldset>
+		<fieldset>
+			<button id="fpd-whitelist-show" class="jsr-button" data-localize="ManageWhitelist">Manage whitelist ⤵</button>
+			<button id="fpd-whitelist-hide" class="jsr-button hidden" data-localize="HideWhitelist">Hide whitelist ⤵</button>
+		</fieldset>
+		<fieldset id="fpd-whitelist-container" class="hidden">
+			<div>
+				<input id="fpd-whitelist-input" type="text" name="fpd-whitelist-hostname" placeholder="example.com">
+				<button id="fpd-whitelist-add-button" class="jsr-button" data-localize="ButtonDisableForDomain" htmltranslation>Disable for the domain</button>
+			</div>
+			<select id="fpd-whitelist-select" name="sometext" size="10" multiple>
+		
+			</select>
+			<div>
+				<button id="fpd-whitelist-remove-button" class="jsr-button" data-localize="ButtonEnableForSelectedDomains" htmltranslation>Enable for the selected domains</button>
+				<p data-localize="ManageWhitelistDescription" htmltranslation>
+					Please note, that these domain names are checked with domain hierarchy, so whitelisting
+					<strong>example.com</strong> does also whitelist <strong>news.example.com</strong>.
+				</p>
+			</div>
+		</fieldset>
+	</div>
+
+</section>
+
+	</section>
+
+
+		<template id="tweak-head">
+		</template>
+		<template id="tweak-row">
+			<label>Wrapper group name</label>
+			<div class="tweak">
+				<input class="tlev" type="range" min="0" max="3" /><output></output>
+			</div>
+			<button class="help">⤵</button>
+			<div class="tweakfill"></div>
+			<div class="explainer hidden_descr">
+				<span class="description"></span>
+				<p>
+					<div class="more"></div>
+				</p>
+				<div class="status"></div>
+			</div>
+		</template>
+
+
+</body>
+</html>

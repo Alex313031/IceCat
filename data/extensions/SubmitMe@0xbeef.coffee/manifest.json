@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Reveal hidden HTML",
+  "version": "1.9",
+  "author": "Nathan Nichols",
+  "description": "Unhides hidden HTML. Also, has a tool that fixes some websites with broken form validation Javascript by forcing an HTTP post.",
+  "applications": {
+    "gecko": {
+	  "id": "SubmitMe@0xbeef.coffee",
+	  "strict_min_version": "42.0"
+    }
+  },
+	"icons":{
+		"16": "icons/16x16.png",
+		"48": "icons/48x48.png"
+	},
+  "permissions": [
+	"contextMenus",
+	"webRequest",
+	"activeTab",
+	"notifications"
+	],
+  "background": {
+    "scripts": ["background.js"
+
+	]
+  }
+  
+}

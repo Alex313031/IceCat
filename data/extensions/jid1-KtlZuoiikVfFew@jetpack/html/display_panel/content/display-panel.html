@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Display JS Monitoring Panel</title>
+<link rel="stylesheet" type="text/css" href="./panel-styles.css"/>
+
+<!-- /**
+ * GNU LibreJS - A browser add-on to block nonfree nontrivial JavaScript.
+ * *
+ * Copyright (C) 2011, 2012, 2014 Loic J. Duros
+ * Copyright (C) 2017, 2018 NateN1222 <nathannichols454@gmail.com>
+ * Copyright (C) 2018 Ruben Rodriguez <ruben@gnu.org>
+ * Copyright (C) 2018 Giorgio Maone <giorgio@maone.net>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see  <http://www.gnu.org/licenses/>.
+ *
+ */
+-->
+<script src="/html/mobile.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="title-area">
+            <div>
+                <a class="libre"
+                   id="ljs-settings"
+                   href= href="https://www.gnu.org/software/librejs/"
+                   title="LibreJS Page Settings">
+                   <h1 class="libre">LibreJS</h1>
+                </a>
+            </div>
+        </div>
+        <div id="buttons" class="title-area">
+          <div>
+              <a target="_blank" href="https://www.gnu.org/software/librejs/"
+                 id="librejs-web-link">gnu.org/software/librejs</a>
+          </div>
+          <div>
+              <strong>LibreJS <span id="version"></span></strong>
+          </div>
+          <button id="complain">Complain to site owner</button>
+         	<button id="report-tab">Show this report in a new tab</button>
+          <button id="open-options">Settings...</button>
+          <button id="autotest">Automated self test...</button>
+        </div>
+    </div>
+    <div id="info">
+        <div id="site">
+          <h2 class="site">This whole site <span></span></h2>
+          <div class="status"></div>
+          <div class="buttons">
+            <button class="whitelist" name="*">Whitelist</button>
+            <button class="blacklist" name="*">Blacklist</button>
+            <button class="forget" name="*">Forget</button>
+            <button id="reload" class="reload">Reload</button>
+          </div>
+        </div>
+        <div id="unknown" class="unknown-js">
+          <h2></h2>
+          <p id="must-reload">
+            LibreJS will decide whether blocking these scripts next time this page is loaded. <button class="reload" id="reload-now">Reload it now</button>
+          </p>
+          <ul>
+            <li id="li-template">
+                <button class="toggle-source show" title="Show code inline">Show</button>
+                <button class="toggle-source hide" title="Hide code inline">Hide</button>
+                <a class="script-url" href="#" target="librejs_viewsource"></a>:
+                <pre class="source"></pre>
+                <p class="reason"></p>
+                <div class="buttons">
+                  <button class="whitelist">Whitelist</button>
+                  <button class="blacklist">Blacklist</button>
+                  <button class="forget">Forget</button>
+                  <button class="forget" name="*">Forget <span class="domain"></span></button>
+                </div>
+
+              </li>
+          </ul>
+        </div>
+        <div id="whitelisted" class="accepted-js">
+            <h2></h2>
+            <ul></ul>
+        </div>
+        <div id="accepted" class="accepted-js">
+            <h2></h2>
+            <ul></ul>
+        </div>
+        <div id="blocked" class="blocked-js">
+            <h2></h2>
+            <ul></ul>
+        </div>
+        <div id="blacklisted" class="blocked-js">
+            <h2></h2>
+            <ul></ul>
+        </div>
+    </div>
+</body>
+<script src="/common/Test.js"></script>
+<script src="main_panel.js"></script>
+</html>
